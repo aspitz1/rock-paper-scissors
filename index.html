@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+    rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="game-container">
+      <section class="human">
+        <h1 class="player-heading">Human!</h1>
+        <img class="human-image" src="assets/human.png" alt="Excited girl with
+        blue poofs andrainbow shirt">
+        <p class="win-counter">Wins: 0</p>
+      </section>
+      <main>
+        <h1 class="game-name-heading">Rock Paper Scissors</h1>
+        <div role="button" class="classic-option">
+          <h2 class="game-option-heading">Classic</h2>
+          <ul class="game-option-button">
+            <li>Rock > Scissors</li>
+            <li>Paper > Rock</li>
+            <li>Scissors > Paper</li>
+          </ul>
+        </div>
+        <div role="button" class="extra-option">
+          <h2 class="game-option-heading">EXTRA Mode</h2>
+          <ul class="game-option-button">
+            <li>Rock > Scissors & Paper Clip</li>
+            <li>Paper > Rock & Tape</li>
+            <li>Scissors > Paper & Tape</li>
+            <li>Paper Clip > Paper & Tape</li>
+            <li>Tape > Scissors & Rock</li>
+          </ul>
+        </div>
+      </main>
+      <section class="computer">
+        <h1 class="player-heading">Computer!</h1>
+        <img class="computer-image" src="assets/computer.png" alt="pink retro
+        computer with a cute face that's smiling">
+        <p class="win-counter">Wins: 0</p>
+      </section>
+    </div>
+    <script src="main.js"></script>
+    <script src="game.js"></script>
+    <script src="player.js"></script>
+  </body>
+</html>
