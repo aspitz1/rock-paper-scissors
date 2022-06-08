@@ -36,8 +36,8 @@ main,
   margin-bottom: 3.5vh;
 }
 
-.classic-option,
-.extra-option {
+.classic-button,
+.extra-button {
   background: #c5c3c6;
 }
 
@@ -45,7 +45,7 @@ main,
   margin-bottom: 12vh;
 }
 
-.classic-option {
+.classic-button {
   margin-bottom: 5vh;
 }
 
