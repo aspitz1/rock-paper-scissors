@@ -1,5 +1,0 @@
-const humanWinsDispaly = document.querySelector('humanWins')
-const computerWinsDisplay = document.querySelector('computerWins')
-const classicButton = document.querySelector('classicButton')
-const extraButton = document.querySelector('extraButton')
-const gamePlaySection = document.querySelector('gamePlay')

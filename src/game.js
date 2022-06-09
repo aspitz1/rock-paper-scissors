@@ -5,8 +5,8 @@ class Game {
     this.scissors = 'scissors'
     this.paperClip = 'paper-clip'
     this.tape = 'tape'
-    this.gameTokensClassic = [this.rock, this.paper, this.scissors]
-    this.gameTokensExtra = [this.rock, this.paper, this.scissors, this.paperClip, this.tape]
+    this.gameFighterClassic = [this.rock, this.paper, this.scissors]
+    this.gameFighterExtra = [this.rock, this.paper, this.scissors, this.paperClip, this.tape]
   }
 
   gameplayClassic(fighter1, fighter2) {
@@ -50,6 +50,13 @@ class Game {
       return fighter2
     } else if (fighter2 === this.tape && fighter1 === this.scissors || fighter1 === this.rock) {
       return fighter2
+    }
+  }
+
+  randomFighter(isHuman, fighterArray) {
+    if (!isHuman) {
+      const num = Math.floor(Math.random() * fighterArray.length)
+      return fighterArray[num]
     }
   }
 
