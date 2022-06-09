@@ -16,13 +16,13 @@ const humanPlayer = new Player('human')
 const computerPlayer = new Player('computer')
 const game = new Game(fighters)
 
-gameplaySection.addEventListener('click', gameplay)
+gameplaySection.addEventListener('click', runGameplay)
 gameplaySection.addEventListener('click', displayGameFromLanding)
 switchGameStyleBtn.addEventListener('click', homeView)
 
 function displayGameFromLanding() {
   if (gameplaySection.getAttribute('data-landingPg') === 'true') {
-    game.setCurrentGameStyle(event.target.getAttribute('data-game')[0].toUpperCase() + event.target.getAttribute('data-game').substring(1))
+    game.setCurrentGameStyle(event.target.getAttribute('data-game')[0].toUpperCase() + event.target.getAttribute('data-game').substring(1), event.target.getAttribute('data-game'))
     displayGame()
   }
 }
@@ -34,7 +34,7 @@ function displayGame() {
   gameplaySection.innerHTML = ''
   for (let i = 0; i < game.currentGameStyle.length; i++) {
     gameplaySection.innerHTML +=
-    `<img data-fighter="${game.currentGameStyle[i]}" class="game-fighter" src="assets/${game.currentGameStyle[i]}.png" alt="Cute ${game.currentGameStyle[i]} thats smiling! Chose one!">`
+    `<img role="button" data-fighter="${game.currentGameStyle[i]}" class="game-fighter" src="assets/${game.currentGameStyle[i]}.png" alt="Cute ${game.currentGameStyle[i]} thats smiling! Choose fighter!">`
   }
 }
 
@@ -45,12 +45,13 @@ function homeView() {
   gameplaySection.innerHTML = originalGameplaySection
 }
 
-function gameplay() {
+function runGameplay() {
   if (gameplaySection.getAttribute('data-landingPg') === 'false') {
     humanPlayer.isTurn = true
     game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'), humanPlayer, computerPlayer)
     gameplaySection.innerHTML = ''
     gameplaySection.innerHTML +=
-    `<img data-fighter="${humanPlayer.fighter}" class="game-fighter" src="assets/${humanPlayer.fighter}.png" alt="Humans chose ${humanPlayer.fighter}"><img data-fighter="${computerPlayer.fighter}" class="game-fighter" src="assets/${computerPlayer.fighter}.png" alt="Humans chose ${computerPlayer.fighter}">`
+    `<img role="button" data-fighter="${humanPlayer.fighter}" class="game-fighter" src="assets/${humanPlayer.fighter}.png" alt="Humans chose ${humanPlayer.fighter}"><img role="button" data-fighter="${computerPlayer.fighter}" class="game-fighter" src="assets/${computerPlayer.fighter}.png" alt="Humans chose ${computerPlayer.fighter}">`
+    console.log(game.gameplayClassic(humanPlayer, computerPlayer))
   }
 }
