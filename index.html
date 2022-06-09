@@ -14,40 +14,44 @@
     <div class="game-container">
       <section class="human">
         <h1 class="player-heading">Human!</h1>
-        <img class="human-image" src="assets/human.png" alt="Excited girl with
-        blue poofs andrainbow shirt">
-        <p class="win-counter">Wins: 0</p>
+        <img data-token="human" class="human-image" src="assets/human.png"
+        alt="Excited girl withblue poofs andrainbow shirt">
+        <p id="humanWins" class="win-counter">Wins: 0</p>
+        <button type="button" name="switch-game-style" id="switchGame"
+        class="switch-game hidden">Switch Game Style</button>
       </section>
       <main>
         <h1 class="game-name-heading">Rock Paper Scissors</h1>
-        <div role="button" class="classic-option">
-          <h2 class="game-option-heading">Classic</h2>
-          <ul class="game-option-button">
-            <li>Rock > Scissors</li>
-            <li>Paper > Rock</li>
-            <li>Scissors > Paper</li>
-          </ul>
-        </div>
-        <div role="button" class="extra-option">
-          <h2 class="game-option-heading">EXTRA Mode</h2>
-          <ul class="game-option-button">
-            <li>Rock > Scissors & Paper Clip</li>
-            <li>Paper > Rock & Tape</li>
-            <li>Scissors > Paper & Tape</li>
-            <li>Paper Clip > Paper & Tape</li>
-            <li>Tape > Scissors & Rock</li>
-          </ul>
-        </div>
+        <section id="gameplay" class="game-play">
+          <div role="button" id="classicButton" class="classic-button">
+            <h2 data-game="classic" class="game-option-heading">Classic</h2>
+            <ul data-game="classic" class="game-option-button">
+              <li data-game="classic">Rock > Scissors</li>
+              <li data-game="classic">Paper > Rock</li>
+              <li data-game="classic">Scissors > Paper</li>
+            </ul>
+          </div>
+          <div role="button" id="extraButton" class="extra-button">
+            <h2  data-game="extra" class="game-option-heading">EXTRA Mode</h2>
+            <ul  data-game="extra" class="game-option-button">
+              <li  data-game="extra">Rock > Scissors & Paper Clip</li>
+              <li  data-game="extra">Paper > Rock & Tape</li>
+              <li  data-game="extra">Scissors > Paper & Tape</li>
+              <li  data-game="extra">Paper Clip > Paper & Tape</li>
+              <li  data-game="extra">Tape > Scissors & Rock</li>
+            </ul>
+          </div>
+        </section>
       </main>
       <section class="computer">
         <h1 class="player-heading">Computer!</h1>
-        <img class="computer-image" src="assets/computer.png" alt="pink retro
-        computer with a cute face that's smiling">
-        <p class="win-counter">Wins: 0</p>
+        <img data-token="computer" class="computer-image" src="assets/computer.png"
+        alt="pink retrocomputer with a cute face that's smiling">
+        <p id="computerWins" class="win-counter">Wins: 0</p>
       </section>
     </div>
-    <script src="main.js"></script>
-    <script src="game.js"></script>
-    <script src="player.js"></script>
+    <script src="./src/game.js"></script>
+    <script src="./src/player.js"></script>
+    <script src="./src/main.js"></script>
   </body>
 </html>

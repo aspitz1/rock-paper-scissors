@@ -17,13 +17,19 @@ main,
 .computer {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   text-align: center;
 }
 
 .human,
 .computer {
   width: 12.5vw;
+}
+.human {
+  margin-right: 5vw;
+}
+
+.computer {
+  margin-left: 5vw;
 }
 
 .player-heading {
@@ -36,8 +42,8 @@ main,
   margin-bottom: 3.5vh;
 }
 
-.classic-option,
-.extra-option {
+.classic-button,
+.extra-button {
   background: #c5c3c6;
 }
 
@@ -45,7 +51,7 @@ main,
   margin-bottom: 12vh;
 }
 
-.classic-option {
+.classic-button {
   margin-bottom: 5vh;
 }
 
@@ -57,4 +63,14 @@ ul,
 li {
   list-style: none;
   padding: 5px;
+}
+
+.game-fighter {
+  width: 16vw;
+}
+
+.hidden {
+  display: none;
+  width: 0;
+  height: 0;
 }
