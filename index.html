@@ -12,10 +12,9 @@
   </head>
   <body>
     <div class="game-container">
-      <section class="human">
+      <section class="player-section-one">
         <h1 class="player-heading">Human!</h1>
-        <img data-token="human" class="human-image" src="assets/human.png"
-        alt="Excited girl withblue poofs andrainbow shirt">
+        <div id="playerImageWrapper" class="player-image"></div>
         <p id="humanWins" class="win-counter">Wins: 0</p>
         <button type="button" name="switch-game-style" id="switchGame"
         class="switch-game hidden">Switch Game Style</button>
@@ -43,10 +42,9 @@
         </div>
         <section id="gameplay" class="game-play"></section>
       </main>
-      <section class="computer">
+      <section class="player-section-two">
         <h1 class="player-heading">Computer!</h1>
-        <img data-token="computer" class="computer-image" src="assets/computer.png"
-        alt="pink retrocomputer with a cute face that's smiling">
+        <div id="playerImageWrapper" class="player-image"></div>
         <p id="computerWins" class="win-counter">Wins: 0</p>
       </section>
     </div>
