@@ -32,7 +32,8 @@ main,
   margin-left: 5vw;
 }
 
-.player-heading {
+.player-heading,
+.classic-button {
   margin-bottom: 5vh;
 }
 
@@ -47,12 +48,12 @@ main,
   background: #c5c3c6;
 }
 
-.game-name-heading {
+.heading-info {
   margin-bottom: 12vh;
 }
 
-.classic-button {
-  margin-bottom: 5vh;
+.game-name-heading {
+  margin-bottom: 2vh;
 }
 
 ul,

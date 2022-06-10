@@ -11,12 +11,25 @@ class Player {
     this.wins++
   }
 
-  chooseFighter(fighter) {
-    this.fighter = fighter
+  chooseFighter(eventTargetDataAttribute, currentGameStyle) {
+    for (let i = 0; i < currentGameStyle.length; i++) {
+      if (eventTargetDataAttribute === currentGameStyle[i]) {
+        this.fighter = currentGameStyle[i]
+      }
+    }
+  }
+
+  randomFighter(currentGameStyle) {
+      const num = Math.floor(Math.random() * currentGameStyle.length)
+      this.fighter = currentGameStyle[num]
   }
 
   changeTurns() {
-    this.isTurn = true
+    if(this.isTurn) {
+      this.isTurn = false
+    } else {
+      this.isTurn = true
+    }
   }
 
 }
