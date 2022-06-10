@@ -17,7 +17,11 @@ main,
 .player-section-two {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+main {
+  width: 75vw;
 }
 
 .player-section-one,
@@ -44,6 +48,7 @@ main,
 
 .classic-button,
 .extra-button {
+  width: 30%;
   background: #c5c3c6;
 }
 

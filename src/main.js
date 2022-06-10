@@ -1,13 +1,13 @@
-const playerImage = document.querySelectorAll('#playerImageWrapper');
-const humanWinsDispaly = document.querySelector('#humanWins');
+const computerWins = document.querySelector('#computerWins');
 const computerWinsDisplay = document.querySelector('#computerWins');
+const gameplaySection = document.querySelector('#gameplay');
+const headingInfo = document.querySelector('#headingInfo');
+const humanWins = document.querySelector('#humanWins');
+const humanWinsDispaly = document.querySelector('#humanWins');
+const playerImage = document.querySelectorAll('#playerImageWrapper');
+const originalHeadingInfo = document.querySelector('#headingInfo').innerHTML;
 const selectGameStyle = document.querySelectorAll('#selectGameButton');
 const switchGameStyleBtn = document.querySelector('#switchGame');
-const headingInfo = document.querySelector('#headingInfo');
-const originalHeadingInfo = document.querySelector('#headingInfo').innerHTML;
-const gameplaySection = document.querySelector('#gameplay');
-const humanWins = document.querySelector('#humanWins');
-const computerWins = document.querySelector('#computerWins');
 
 const fighters = {
   fighterOne: 'rock',
@@ -17,27 +17,28 @@ const fighters = {
   fighterFive: 'tape'
 };
 
-const humanPlayer = new Player('human');
-const computerPlayer = new Player('computer');
+const firstPlayer = new Player('human');
+const secondPlayer = new Player('computer');
+
 const game = new Game(fighters);
 
 window.addEventListener('load', displayPlayerImage);
-switchGameStyleBtn.addEventListener('click', homeView);
-selectGameStyle[0].addEventListener('click', displayGameStyle);
-selectGameStyle[1].addEventListener('click', displayGameStyle);
 gameplaySection.addEventListener('click', gameplayHandeler);
+selectGameStyle[0].addEventListener('click', displayGameChoice);
+selectGameStyle[1].addEventListener('click', displayGameChoice);
+switchGameStyleBtn.addEventListener('click', homeView);
 
 function displayPlayerImage() {
-  playerImage[0].innerHTML += `<img data-token="${humanPlayer.playerToken}"
-    class="player-image" src="assets/${humanPlayer.playerToken}.png" alt="Cute
-    ${humanPlayer.playerToken} who is excited to be here!">`;
+  playerImage[0].innerHTML += `<img data-token="${firstPlayer.playerToken}"
+    class="player-image" src="assets/${firstPlayer.playerToken}.png" alt="Cute
+    ${firstPlayer.playerToken} who is excited to be here!">`;
 
-  playerImage[1].innerHTML += `<img data-token="${computerPlayer.playerToken}"
-    class="player-image" src="assets/${computerPlayer.playerToken}.png"
-    alt="Cute ${computerPlayer.playerToken} who is exciter to be here!">`;
+  playerImage[1].innerHTML += `<img data-token="${secondPlayer.playerToken}"
+    class="player-image" src="assets/${secondPlayer.playerToken}.png"
+    alt="Cute ${secondPlayer.playerToken} who is exciter to be here!">`;
 }
 
-function displayGameStyle() {
+function displayGameChoice() {
   selectGameStyle[0].classList.add('hidden');
   selectGameStyle[1].classList.add('hidden');
 
@@ -45,6 +46,14 @@ function displayGameStyle() {
     .toUpperCase() + event.target.getAttribute('data-game').substring(1));
 
   displayGame();
+}
+
+function homeView() {
+  selectGameStyle[0].classList.remove('hidden');
+  selectGameStyle[1].classList.remove('hidden');
+  switchGameStyleBtn.classList.add('hidden');
+  gameplaySection.innerHTML = '';
+  headingInfo.innerHTML = originalHeadingInfo;
 }
 
 function displayGame() {
@@ -61,22 +70,12 @@ function displayGame() {
   };
 }
 
-function homeView() {
-  selectGameStyle[0].classList.remove('hidden');
-  selectGameStyle[1].classList.remove('hidden');
-  gameplaySection.innerHTML = '';
-  headingInfo.innerHTML = originalHeadingInfo;
-  switchGameStyleBtn.classList.add('hidden');
-  gameplaySection.removeAttribute('data-gameStyle');
-  gameplaySection.setAttribute('data-landingPg', 'true');
-}
-
 function gameplayHandeler(event) {
   if(event.target.getAttribute('data-fighter')) {
-    humanPlayer.changeTurns();
+    firstPlayer.changeTurns();
 
     game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'),
-      humanPlayer, computerPlayer);
+      firstPlayer, secondPlayer);
 
     runGameplay();
     setTimeout(displayGame, 1200);
@@ -84,19 +83,20 @@ function gameplayHandeler(event) {
 }
 
 function runGameplay() {
-  const winner = game[`gameplay${game.currentGameStyleName}`](humanPlayer,
-    computerPlayer);
+  switchGameStyleBtn.classList.add('hidden');
+  const winner = game[`gameplay${game.currentGameStyleName}`](firstPlayer,
+    secondPlayer);
 
   headingInfo.innerHTML = winner;
 
   gameplaySection.innerHTML = '';
 
   gameplaySection.innerHTML +=
-  `<img class="game-fighter" src="assets/${humanPlayer.fighter}.png" alt="Humans
-    chose ${humanPlayer.fighter}">
-  <img class="game-fighter" src="assets/${computerPlayer.fighter}.png"
-    alt="Humans chose ${computerPlayer.fighter}">`;
+  `<img class="game-fighter" src="assets/${firstPlayer.fighter}.png" alt="Humans
+    chose ${firstPlayer.fighter}">
+  <img class="game-fighter" src="assets/${secondPlayer.fighter}.png"
+    alt="Humans chose ${secondPlayer.fighter}">`;
 
-  humanWins.innerHTML = 'Wins: ' + humanPlayer.wins;
-  computerWins.innerHTML = 'Wins: ' + computerPlayer.wins;
+  humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
+  computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
 }
