@@ -25,7 +25,11 @@ class Player {
   }
 
   changeTurns() {
-    this.isTurn = true
+    if(this.isTurn) {
+      this.isTurn = false
+    } else {
+      this.isTurn = true
+    }
   }
 
 }

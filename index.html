@@ -23,26 +23,25 @@
       <main>
         <h1 class="game-name-heading">Rock Paper Scissors</h1>
         <p id="headingInfo" class="heading-info">Choose Game Style</p>
-        <section data-landingPg="true" id="gameplay" class="game-play">
-          <div data-role="button" role="button" id="classicButton" class="classic-button">
-            <h2 data-game="classic" class="game-option-heading">Classic</h2>
-            <ul data-game="classic" class="game-option-button">
-              <li data-game="classic">Rock > Scissors</li>
-              <li data-game="classic">Paper > Rock</li>
-              <li data-game="classic">Scissors > Paper</li>
-            </ul>
-          </div>
-          <div data-role="button" role="button" id="extraButton" class="extra-button">
-            <h2  data-game="extra" class="game-option-heading">EXTRA Mode</h2>
-            <ul  data-game="extra" class="game-option-button">
-              <li  data-game="extra">Rock > Scissors & Paper Clip</li>
-              <li  data-game="extra">Paper > Rock & Tape</li>
-              <li  data-game="extra">Scissors > Paper & Paper Clip</li>
-              <li  data-game="extra">Paper Clip > Paper & Tape</li>
-              <li  data-game="extra">Tape > Scissors & Rock</li>
-            </ul>
-          </div>
-        </section>
+        <div data-role="button" role="button" id="selectGameButton" class="classic-button">
+          <h2 data-game="classic" class="game-option-heading">Classic</h2>
+          <ul data-game="classic" class="game-option-button">
+            <li data-game="classic">Rock > Scissors</li>
+            <li data-game="classic">Paper > Rock</li>
+            <li data-game="classic">Scissors > Paper</li>
+          </ul>
+        </div>
+        <div data-role="button" role="button" id="selectGameButton" class="extra-button">
+          <h2  data-game="extra" class="game-option-heading">EXTRA Mode</h2>
+          <ul  data-game="extra" class="game-option-button">
+            <li  data-game="extra">Rock > Scissors & Paper Clip</li>
+            <li  data-game="extra">Paper > Rock & Tape</li>
+            <li  data-game="extra">Scissors > Paper & Paper Clip</li>
+            <li  data-game="extra">Paper Clip > Paper & Tape</li>
+            <li  data-game="extra">Tape > Scissors & Rock</li>
+          </ul>
+        </div>
+        <section id="gameplay" class="game-play"></section>
       </main>
       <section class="computer">
         <h1 class="player-heading">Computer!</h1>
