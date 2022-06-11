@@ -22,11 +22,11 @@ const secondPlayer = new Player('computer');
 
 const game = new Game(fighters);
 
-window.addEventListener('load', displayPlayerImage);
 gameplaySection.addEventListener('click', gameplayHandeler);
 selectGameStyle[0].addEventListener('click', displayGameChoice);
 selectGameStyle[1].addEventListener('click', displayGameChoice);
 switchGameStyleBtn.addEventListener('click', homeView);
+window.addEventListener('load', displayPlayerImage);
 
 function displayPlayerImage() {
   playerImage[0].innerHTML += `<img data-token="${firstPlayer.playerToken}"
