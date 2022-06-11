@@ -36,41 +36,37 @@ class Game {
   }
 
   gameplayClassic(playerOne, playerTwo) {
+    let winner
+
     if (playerOne.fighter === this.fighterOne &&
       playerTwo.fighter === this.fighterThree) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterOne &&
       playerOne.fighter === this.fighterThree) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterTwo &&
       playerTwo.fighter === this.fighterOne) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playeOne;
 
     } else if (playerTwo.fighter === this.fighterTwo &&
       playerOne.fighter === this.fighterOne) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterThree &&
       playerTwo.fighter === this.fighterTwo) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterThree &&
       playerOne.fighter === this.fighterTwo) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won`;
+      winner = playerTwo;
 
     } else {
       return `<p class="draw">DRAW!</p>`;
@@ -84,68 +80,60 @@ class Game {
   }
 
   gameplayExtra(playerOne, playerTwo) {
+    let winner
+
     if (playerOne.fighter === playerTwo.fighter) {
       return `<p class="draw">DRAW!</p>`;
 
     } else if (playerOne.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerOne.fighter)) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterTwo &&
       [this.fighterOne, this.fighterFive].includes(playerTwo.fighter)) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterTwo &&
       [this.fighterOne, this.fighterFive].includes(playerOne.fighter)) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterThree &&
       [this.fighterTwo, this.fighterFour].includes(playerOne.fighter)) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterThree &&
       [this.fighterTwo, this.fighterFour].includes(playerTwo.fighter)) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterFour &&
       [this.fighterTwo, this.fighterFive].includes(playerTwo.fighter)) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterFour &&
       [this.fighterTwo, this.fighterFive].includes(playerOne.fighter)) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterFive &&
       [this.fighterThree, this.fighterOne].includes(playerTwo.fighter)) {
 
-      playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterFive &&
       [this.fighterThree, this.fighterOne].includes(playerOne.fighter)) {
 
-      playerTwo.addWin();
-      return `The ${playerTwo.playerToken} won!`;
+      winner = playerTwo;
     }
 
     winner.addWin();
