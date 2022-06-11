@@ -72,8 +72,6 @@ function displayGame() {
 
 function gameplayHandeler(event) {
   if(event.target.getAttribute('data-fighter')) {
-    firstPlayer.changeTurns();
-
     game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'),
       firstPlayer, secondPlayer);
 

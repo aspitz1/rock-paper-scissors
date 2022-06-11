@@ -21,6 +21,7 @@ class Game {
   }
 
   fighterChoiceVsComputer(eventTargetDataAttribute, human, computer) {
+    human.changeTurns();
     if (human.isTurn) {
       human.chooseFighter(eventTargetDataAttribute, this.currentGameStyle)
       human.changeTurns()
@@ -29,7 +30,6 @@ class Game {
 
     if (computer.isTurn) {
       computer.randomFighter(this.currentGameStyle);
-      human.changeTurns();
       computer.changeTurns();
     }
 
