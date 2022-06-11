@@ -73,13 +73,19 @@ class Game {
       return `The ${playerTwo.playerToken} won`;
 
     } else {
-      return 'DRAW!';
+      return `<p class="draw">DRAW!</p>`;
     }
+
+    winner.addWin();
+    return `<img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">
+      <p class="winner">The ${winner.playerToken} won!</p>`
   }
 
   gameplayExtra(playerOne, playerTwo) {
     if (playerOne.fighter === playerTwo.fighter) {
-      return 'DRAW!';
+      return `<p class="draw">DRAW!</p>`;
 
     } else if (playerOne.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
@@ -141,6 +147,12 @@ class Game {
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
     }
+
+    winner.addWin();
+    return `<img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">
+      <p class="winner">The ${winner.playerToken} won!</p>`
   }
 
 }
