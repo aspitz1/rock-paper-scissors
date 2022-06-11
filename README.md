@@ -36,10 +36,12 @@ method that runs the human vs computer gameplay.
 <br><br>
 The main.js file pulls together the two classes to create the game as it is
 displayed in the browser. The global variables are organized by alphabetical
-order.
+order. The functions are organized by how they appear in the list of event
+listeners. If a function is invoked in another function it will be directly
+underneath the function it is called in.
 <br><br>
 The asset files should have naming conventions that match the values of the
-fighters because they are interpolated into a file path in the main.js to
+fighters. They are interpolated into a file path in the main.js to
 display the images.
 
 # Game Rules
