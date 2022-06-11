@@ -16,7 +16,7 @@ class Player {
       if (eventTargetDataAttribute === currentGameStyle[i]) {
         this.fighter = currentGameStyle[i];
       }
-    }
+    }  
   }
 
   randomFighter(currentGameStyle) {

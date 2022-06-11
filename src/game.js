@@ -21,6 +21,7 @@ class Game {
   }
 
   fighterChoiceVsComputer(eventTargetDataAttribute, human, computer) {
+    human.changeTurns();
     if (human.isTurn) {
       human.chooseFighter(eventTargetDataAttribute, this.currentGameStyle)
       human.changeTurns()
@@ -29,31 +30,48 @@ class Game {
 
     if (computer.isTurn) {
       computer.randomFighter(this.currentGameStyle);
-      human.changeTurns();
       computer.changeTurns();
     }
 
   }
 
   gameplayClassic(playerOne, playerTwo) {
-    if (playerOne.fighter === this.fighterOne && playerTwo.fighter === this.fighterThree) {
+    if (playerOne.fighter === this.fighterOne &&
+      playerTwo.fighter === this.fighterThree) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterOne && playerOne.fighter === this.fighterThree) {
+
+    } else if (playerTwo.fighter === this.fighterOne &&
+      playerOne.fighter === this.fighterThree) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterTwo && playerTwo.fighter === this.fighterOne) {
+
+    } else if (playerOne.fighter === this.fighterTwo &&
+      playerTwo.fighter === this.fighterOne) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterTwo && playerOne.fighter === this.fighterOne) {
+
+    } else if (playerTwo.fighter === this.fighterTwo &&
+      playerOne.fighter === this.fighterOne) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterThree && playerTwo.fighter === this.fighterTwo) {
+
+    } else if (playerOne.fighter === this.fighterThree &&
+      playerTwo.fighter === this.fighterTwo) {
+
       playerOne.addWin();
-      return `The ${playerOne.playerToken} won!`
-    } else if (playerTwo.fighter === this.fighterThree && playerOne.fighter === this.fighterTwo) {
+      return `The ${playerOne.playerToken} won!`;
+
+    } else if (playerTwo.fighter === this.fighterThree &&
+      playerOne.fighter === this.fighterTwo) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won`;
+
     } else {
       return 'DRAW!';
     }
@@ -62,34 +80,64 @@ class Game {
   gameplayExtra(playerOne, playerTwo) {
     if (playerOne.fighter === playerTwo.fighter) {
       return 'DRAW!';
-    } else if (playerOne.fighter === this.fighterOne && playerTwo.fighter === this.fighterThree || playerTwo.fighter === this.fighterFour) {
+
+    } else if (playerOne.fighter === this.fighterOne &&
+      [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterOne && playerOne.fighter === this.fighterThree || playerOne.fighter === this.fighterFour) {
+
+    } else if (playerTwo.fighter === this.fighterOne &&
+      [this.fighterThree, this.fighterFour].includes(playerOne.fighter)) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterTwo && playerTwo.fighter === this.fighterOne || playerTwo.fighter === this.fighterFive) {
+
+    } else if (playerOne.fighter === this.fighterTwo &&
+      [this.fighterOne, this.fighterFive].includes(playerTwo.fighter)) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterTwo && playerOne.fighter === this.fighterOne || playerOne.fighter === this.fighterFive) {
+
+    } else if (playerTwo.fighter === this.fighterTwo &&
+      [this.fighterOne, this.fighterFive].includes(playerOne.fighter)) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterThree && playerOne.fighter === this.fighterTwo || playerOne.fighter === this.fighterFour) {
+
+    } else if (playerOne.fighter === this.fighterThree &&
+      [this.fighterTwo, this.fighterFour].includes(playerOne.fighter)) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterThree && playerTwo.fighter === this.fighterTwo || playerTwo.fighter === this.fighterFour) {
+
+    } else if (playerTwo.fighter === this.fighterThree &&
+      [this.fighterTwo, this.fighterFour].includes(playerTwo.fighter)) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterFour && playerTwo.fighter === this.fighterTwo || playerTwo.fighter === this.fighterFive) {
+
+    } else if (playerOne.fighter === this.fighterFour &&
+      [this.fighterTwo, this.fighterFive].includes(playerTwo.fighter)) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterFour && playerOne.fighter === this.fighterTwo || playerOne.fighter === this.fighterFive) {
+
+    } else if (playerTwo.fighter === this.fighterFour &&
+      [this.fighterTwo, this.fighterFive].includes(playerOne.fighter)) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
-    } else if (playerOne.fighter === this.fighterFive && playerTwo.fighter === this.fighterThree || playerTwo.fighter === this.fighterOne) {
+
+    } else if (playerOne.fighter === this.fighterFive &&
+      [this.fighterThree, this.fighterOne].includes(playerTwo.fighter)) {
+
       playerOne.addWin();
       return `The ${playerOne.playerToken} won!`;
-    } else if (playerTwo.fighter === this.fighterFive && playerOne.fighter === this.fighterThree || playerOne.fighter === this.fighterOne) {
+
+    } else if (playerTwo.fighter === this.fighterFive &&
+      [this.fighterThree, this.fighterOne].includes(playerOne.fighter)) {
+
       playerTwo.addWin();
       return `The ${playerTwo.playerToken} won!`;
     }
