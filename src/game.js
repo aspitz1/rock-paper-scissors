@@ -133,6 +133,7 @@ class Game {
       winner = playerTwo;
     }
 
+    winner.addWin();
     return `The ${winner.playerToken} won!`
   }
 
