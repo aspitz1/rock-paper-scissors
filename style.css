@@ -6,10 +6,13 @@
   font-family: 'Questrial', sans-serif;
 }
 
+body {
+  background: #e4e3d3;
+}
+
 .game-container {
   display: flex;
   justify-content: space-between;
-  margin: 8vh 4vw 0 4vw;
 }
 
 main,
@@ -24,16 +27,43 @@ main {
   width: 75vw;
 }
 
+.game-name-heading {
+  margin: 6vh 0 2.5vh 0;
+  padding: 4px;
+  font-size: 2.5em;
+  background: #C39BEB;
+  box-shadow: 4px 4px #000;
+}
+
+.heading-info {
+  margin-bottom: 12vh;
+  font-size: 1.7em;
+}
+
 .player-section-one,
 .player-section-two {
   width: 12.5vw;
+  height: 100vh;
+  background: #F5CCD8;
 }
+
+.player-section-one,
+.player-section-two {
+  padding: 6vh 3vw 0 3vw;
+}
+
+.player-heading {
+  font-size: 2em;
+}
+
 .player-section-one {
-  margin-right: 5vw;
+  margin-right: 3vw;
+  box-shadow: 2px 0 5px #000;
 }
 
 .player-section-two {
-  margin-left: 5vw;
+  margin-left: 3vw;
+  box-shadow: 0 -2px 7px #000;
 }
 
 .player-heading,
@@ -46,18 +76,23 @@ main {
   margin-bottom: 3.5vh;
 }
 
+.win-counter {
+  margin-bottom: 2vh;
+  font-size: 1.5em;
+}
+
 .classic-button,
 .extra-button {
   width: 30%;
-  background: #c5c3c6;
+  background: #EA9AB2;
+  transition: all .2s ease-in;
 }
 
-.heading-info {
-  margin-bottom: 12vh;
-}
-
-.game-name-heading {
-  margin-bottom: 2vh;
+.classic-button:hover,
+.extra-button:hover {
+  cursor: pointer;
+  background: #F5CCD8;
+  box-shadow: 4px 4px #000;
 }
 
 ul,
@@ -72,6 +107,10 @@ li {
 
 .game-fighter {
   width: 16vw;
+}
+
+.player-image-small {
+  width: 6vw;
 }
 
 .hidden {
