@@ -69,18 +69,24 @@ class Game {
       winner = playerTwo;
 
     } else {
-      return 'DRAW!';
+      return `<p class="draw">DRAW!</p>`;
     }
 
     winner.addWin();
-    return `The ${winner.playerToken} won!`
+    return `<img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">
+      <p class="winner">The ${winner.playerToken} won!</p>
+      <img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">`
   }
 
   gameplayExtra(playerOne, playerTwo) {
     let winner
 
     if (playerOne.fighter === playerTwo.fighter) {
-      return 'DRAW!';
+      return `<p class="draw">DRAW!</p>`;
 
     } else if (playerOne.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
@@ -134,7 +140,13 @@ class Game {
     }
 
     winner.addWin();
-    return `The ${winner.playerToken} won!`
+    return `<img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">
+      <p class="winner heading-info">The ${winner.playerToken} won!</p>
+      <img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">`
   }
 
 }
