@@ -51,7 +51,7 @@ class Game {
     } else if (playerOne.fighter === this.fighterTwo &&
       playerTwo.fighter === this.fighterOne) {
 
-      winner = playeOne;
+      winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterTwo &&
       playerOne.fighter === this.fighterOne) {
@@ -109,12 +109,12 @@ class Game {
       winner = playerTwo;
 
     } else if (playerOne.fighter === this.fighterThree &&
-      [this.fighterTwo, this.fighterFour].includes(playerOne.fighter)) {
+      [this.fighterTwo, this.fighterFour].includes(playerTwo.fighter)) {
 
       winner = playerOne;
 
     } else if (playerTwo.fighter === this.fighterThree &&
-      [this.fighterTwo, this.fighterFour].includes(playerTwo.fighter)) {
+      [this.fighterTwo, this.fighterFour].includes(playerOne.fighter)) {
 
       winner = playerTwo;
 
