@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #e4e3d3;
+  background-color: #e4e3d3;
 }
 
 .game-container {
@@ -31,11 +31,15 @@ main {
   margin: 6vh 0 2.5vh 0;
   padding: 4px;
   font-size: 2.5em;
-  background: #C39BEB;
+  background-color: #C39BEB;
   box-shadow: 4px 4px #000;
 }
 
-.heading-info {
+.heading-info-wrapper {
+  display: flex;
+}
+
+.heading-info-wrapper {
   margin-bottom: 12vh;
   font-size: 1.7em;
 }
@@ -44,7 +48,7 @@ main {
 .player-section-two {
   width: 12.5vw;
   height: 100vh;
-  background: #F5CCD8;
+  background: linear-gradient(#C39BEB 60%, #E0CCF5);
 }
 
 .player-section-one,
@@ -57,13 +61,13 @@ main {
 }
 
 .player-section-one {
-  margin-right: 3vw;
-  box-shadow: 2px 0 5px #000;
+  padding-right: 3vw;
+  border-right: solid 3px #000;
 }
 
 .player-section-two {
-  margin-left: 3vw;
-  box-shadow: 0 -2px 7px #000;
+  padding-left: 3vw;
+  border-left: solid 3px #000;
 }
 
 .player-heading,
@@ -84,20 +88,20 @@ main {
 .classic-button,
 .extra-button {
   width: 30%;
-  background: #EA9AB2;
-  transition: all .2s ease-in;
+  background-color: #E582A0;
+  transition: all .2s ease;
 }
 
 .classic-button:hover,
 .extra-button:hover {
   cursor: pointer;
-  background: #F5CCD8;
+  background-color: #EA9AB2;
   box-shadow: 4px 4px #000;
 }
 
 ul,
 .game-option-heading {
-  padding: 10px;
+  padding: 5px;
 }
 
 li {
@@ -105,12 +109,28 @@ li {
   padding: 5px;
 }
 
+.gameplay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 5vh 0 5vh 0;
+  border-top: solid 3px #000;
+  border-bottom: solid 3px #000;
+  background: #EA9AB2;
+}
+
 .game-fighter {
-  width: 16vw;
+  width: 20%;
+  margin: 0 2vw 0 2vw;
 }
 
 .player-image-small {
   width: 6vw;
+}
+
+.game-fighter-button:hover {
+  cursor: pointer;
 }
 
 .hidden {

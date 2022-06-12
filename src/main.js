@@ -1,11 +1,13 @@
 const computerWins = document.querySelector('#computerWins');
 const computerWinsDisplay = document.querySelector('#computerWins');
 const gameplaySection = document.querySelector('#gameplay');
-const headingInfo = document.querySelector('#headingInfo');
+const headingInfo = document.querySelector('#headingInfoWrapper');
 const humanWins = document.querySelector('#humanWins');
 const humanWinsDispaly = document.querySelector('#humanWins');
 const playerImage = document.querySelectorAll('#playerImageWrapper');
-const originalHeadingInfo = document.querySelector('#headingInfo').innerHTML;
+const originalHeadingInfo =
+  document.querySelector('#headingInfoWrapper').innerHTML;
+
 const selectGameStyle = document.querySelectorAll('#selectGameButton');
 const switchGameStyleBtn = document.querySelector('#switchGame');
 
@@ -60,6 +62,7 @@ function runGameplay() {
 function displayGameChoice() {
   selectGameStyle[0].classList.add('hidden');
   selectGameStyle[1].classList.add('hidden');
+  gameplay.classList.remove('hidden')
 
   game.setCurrentGameStyle(event.target.getAttribute('data-game')[0]
     .toUpperCase() + event.target.getAttribute('data-game').substring(1));
@@ -76,12 +79,13 @@ function displayGame() {
   for (let i = 0; i < game.currentGameStyle.length; i++) {
     gameplaySection.innerHTML +=
     `<img role="button" data-fighter="${game.currentGameStyle[i]}"
-      class="game-fighter" src="assets/${game.currentGameStyle[i]}.png"
+      class="game-fighter game-fighter-button" src="assets/${game.currentGameStyle[i]}.png"
       alt="Cute ${game.currentGameStyle[i]} that's smiling!">`;
   };
 }
 
 function homeView() {
+  gameplay.classList.add('hidden')
   selectGameStyle[0].classList.remove('hidden');
   selectGameStyle[1].classList.remove('hidden');
   switchGameStyleBtn.classList.add('hidden');

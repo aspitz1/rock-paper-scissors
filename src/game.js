@@ -140,7 +140,7 @@ class Game {
     return `<img data-token="${winner.playerToken}"
       class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
       ${winner.playerToken} who is excited to be here!">
-      <p class="winner">The ${winner.playerToken} won!</p>`
+      <p class="winner heading-info">The ${winner.playerToken} won!</p>`
   }
 
 }
