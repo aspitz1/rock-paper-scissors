@@ -36,7 +36,7 @@ function gameplayHandeler(event) {
       firstPlayer, secondPlayer);
 
     runGameplay();
-    setTimeout(displayGame, 1200);
+    setTimeout(displayGame, 1300);
   }
 }
 
@@ -45,7 +45,19 @@ function runGameplay() {
   const winner = game[`gameplay${game.currentGameStyleName}`](firstPlayer,
     secondPlayer);
 
-  headingInfo.innerHTML = winner;
+  console.log(winner);
+
+  if(winner === 'DRAW!') {
+    headingInfo.innerHTML = winner;
+  } else {
+    headingInfo.innerHTML = `<img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">
+      <p class="winner">The ${winner.playerToken} won!</p>
+      <img data-token="${winner.playerToken}"
+      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
+      ${winner.playerToken} who is excited to be here!">`;
+  }
 
   gameplaySection.innerHTML = '';
 
@@ -55,18 +67,27 @@ function runGameplay() {
   <img class="game-fighter" src="assets/${secondPlayer.fighter}.png"
     alt="Humans chose ${secondPlayer.fighter}">`;
 
-  winCounterUpdate()
+  if (winner.playerToken === 'human') {
+    winnerHumanUpdate()
+  } else if (winner.playerToken === 'computer') {
+    winnerComputerUpdate()
+  }
 }
 
-function winCounterUpdate() {
+function winnerHumanUpdate() {
   humanWins.classList.add('win-counter-update');
-  computerWins.classList.add('win-counter-update');
   humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
-  computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
   setTimeout(function() {
     humanWins.classList.remove('win-counter-update');
+  }, 1300)
+}
+
+function winnerComputerUpdate() {
+  computerWins.classList.add('win-counter-update');
+  computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
+  setTimeout(function() {
     computerWins.classList.remove('win-counter-update');
-  }, 1200)
+  }, 1300)
 }
 
 function displayGameChoice() {
