@@ -30,11 +30,6 @@ selectGameStyle[1].addEventListener('click', displayGameChoice);
 switchGameStyleBtn.addEventListener('click', homeView);
 window.addEventListener('load', displayPlayerImage);
 
-localStorage.setItem(firstPlayer, "firstPlayer");
-localStorage.setItem(secondPlayer, "secondPlayer");
-localStorage.getItem("firstPlayer");
-localStorage.getItem("secondPlayer");
-
 function gameplayHandeler(event) {
   if(event.target.getAttribute('data-fighter')) {
     game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'),
@@ -43,6 +38,13 @@ function gameplayHandeler(event) {
     runGameplay();
     setTimeout(displayGame, 1300);
   }
+
+  saveWinsToStorage()
+}
+
+function saveWinsToStorage() {
+  localStorage.setItem("firstPlayerWins", JSON.stringify(firstPlayer));
+  localStorage.setItem("secondPlayerWins", JSON.stringify(secondPlayer));
 }
 
 function runGameplay() {
@@ -137,4 +139,19 @@ function displayPlayerImage() {
   playerImage[1].innerHTML += `<img data-token="${secondPlayer.playerToken}"
     class="player-image" src="assets/${secondPlayer.playerToken}.png"
     alt="Cute ${secondPlayer.playerToken} who is exciter to be here!">`;
+
+  displayWins()
+}
+
+function displayWins() {
+  if (localStorage.length) {
+    retrieveWinsFromStorage()
+    humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
+    computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
+  }
+}
+
+function retrieveWinsFromStorage() {
+  firstPlayer.wins = JSON.parse(localStorage.firstPlayerWins).wins;
+  secondPlayer.wins = JSON.parse(localStorage.secondPlayerWins).wins;
 }
