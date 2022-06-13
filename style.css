@@ -231,6 +231,14 @@ li {
     font-size: 1.2em;
   }
 
+  .game-option-heading {
+    margin-bottom: 1vh;
+  }
+
+  .heading-info-wrapper {
+    margin-bottom: 1vh;
+  }
+
   .heading-info {
     font-size: .7em;
   }
