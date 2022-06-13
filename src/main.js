@@ -55,8 +55,18 @@ function runGameplay() {
   <img class="game-fighter" src="assets/${secondPlayer.fighter}.png"
     alt="Humans chose ${secondPlayer.fighter}">`;
 
+  winCounterUpdate()
+}
+
+function winCounterUpdate() {
+  humanWins.classList.add('win-counter-update');
+  computerWins.classList.add('win-counter-update');
   humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
   computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
+  setTimeout(function() {
+    humanWins.classList.remove('win-counter-update');
+    computerWins.classList.remove('win-counter-update');
+  }, 1200)
 }
 
 function displayGameChoice() {
