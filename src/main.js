@@ -30,6 +30,11 @@ selectGameStyle[1].addEventListener('click', displayGameChoice);
 switchGameStyleBtn.addEventListener('click', homeView);
 window.addEventListener('load', displayPlayerImage);
 
+localStorage.setItem(firstPlayer, "firstPlayer");
+localStorage.setItem(secondPlayer, "secondPlayer");
+localStorage.getItem("firstPlayer");
+localStorage.getItem("secondPlayer");
+
 function gameplayHandeler(event) {
   if(event.target.getAttribute('data-fighter')) {
     game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'),
@@ -44,8 +49,6 @@ function runGameplay() {
   switchGameStyleBtn.classList.add('hidden');
   const winner = game[`gameplay${game.currentGameStyleName}`](firstPlayer,
     secondPlayer);
-
-  console.log(winner);
 
   if(winner === 'DRAW!') {
     headingInfo.innerHTML = winner;
