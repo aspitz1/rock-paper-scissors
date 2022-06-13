@@ -3,7 +3,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -32,7 +32,7 @@ main {
   padding: 6vh 0 2.5vh 0;
   margin-bottom: 3vh;
   font-size: 2.5em;
-  background: linear-gradient(#518ee6, #8ea34f, #809a31);
+  background: #809a31;
   box-shadow: 3px 3px 5px #373737;
 }
 
@@ -49,12 +49,8 @@ main {
 .player-section-two {
   width: 12.5vw;
   height: 100vh;
-  background: #e4e3d3;
-}
-
-.player-section-one,
-.player-section-two {
   padding: 6vh 3vw 0 3vw;
+  background: #e4e3d3;
 }
 
 .player-heading {
@@ -86,7 +82,7 @@ main {
   width: 100%;
   margin-bottom: 2vh;
   padding: 5px;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border-radius: 5px;
   background: #8ea34f;
 }
@@ -124,12 +120,11 @@ main {
 
 ul,
 .game-option-heading {
-  padding: 5px;
+  padding: .5vh;
 }
 
 li {
   list-style: none;
-  padding: 5px;
 }
 
 .gameplay {
@@ -138,8 +133,6 @@ li {
   justify-content: center;
   width: 100%;
   padding: 3.5vh 0 3.5vh 0;
-  border-top: solid 3px #fff;
-  border-bottom: solid 3px #fff;
   background: #ffb1d7;
 }
 
@@ -160,4 +153,66 @@ li {
   display: none;
   width: 0;
   height: 0;
+}
+
+@media(max-width: 770px) {
+  .game-container {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .player-section-one,
+  .player-section-two {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    padding: 0;
+    background: #e4e3d3;
+    box-shadow: none;
+  }
+
+  .player-heading {
+    margin: 0;
+  }
+
+  .player-image {
+    margin: 0;
+  }
+
+  .win-counter {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    background: #fff;
+  }
+
+  .switch-game {
+    width: 100vw;
+    border-radius: 0;
+    background: #E582A0;
+  }
+
+  .switch-game:hover {
+    background: #EA9AB2;
+  }
+
+  main {
+    display: flex;
+    height: 75vh;
+    justify-content: flex-start;
+  }
+
+  main,
+  .game-name-heading {
+    width: 100vw;
+    margin-bottom: 1.vh;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .classic-button,
+  .extra-button {
+    width: 50%;
+  }
 }
