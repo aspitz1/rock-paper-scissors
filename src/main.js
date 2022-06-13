@@ -109,8 +109,10 @@ function displayGame() {
 
   for (let i = 0; i < game.currentGameStyle.length; i++) {
     gameplaySection.innerHTML +=
-    `<img role="button" data-fighter="${game.currentGameStyle[i]}"
-      class="game-fighter game-fighter-button" src="assets/${game.currentGameStyle[i]}.png"
+    `<img role="button" aria-lable="click to chose ${game.currentGameStyle[i]}"
+      data-fighter="${game.currentGameStyle[i]}"
+      class="game-fighter game-fighter-button"
+      src="assets/${game.currentGameStyle[i]}.png"
       alt="Cute ${game.currentGameStyle[i]} that's smiling!">`;
   };
 }

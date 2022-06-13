@@ -92,7 +92,7 @@ main {
 .win-counter-update {
   font-size: 1.5em;
   color: #DF1933;
-  transition: all .1s ease-out;
+  transition: all .07s ease-out;
 }
 
 .classic-button,
