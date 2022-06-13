@@ -42,11 +42,6 @@ function gameplayHandeler(event) {
   saveWinsToStorage()
 }
 
-function saveWinsToStorage() {
-  localStorage.setItem("firstPlayerWins", JSON.stringify(firstPlayer));
-  localStorage.setItem("secondPlayerWins", JSON.stringify(secondPlayer));
-}
-
 function runGameplay() {
   switchGameStyleBtn.classList.add('hidden');
   const winner = game[`gameplay${game.currentGameStyleName}`](firstPlayer,
@@ -93,6 +88,11 @@ function winnerComputerUpdate() {
   setTimeout(function() {
     computerWins.classList.remove('win-counter-update');
   }, 1300)
+}
+
+function saveWinsToStorage() {
+  localStorage.setItem("firstPlayerWins", JSON.stringify(firstPlayer));
+  localStorage.setItem("secondPlayerWins", JSON.stringify(secondPlayer));
 }
 
 function displayGameChoice() {
