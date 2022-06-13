@@ -171,10 +171,7 @@ li {
     box-shadow: none;
   }
 
-  .player-heading {
-    margin: 0;
-  }
-
+  .player-heading,
   .player-image {
     margin: 0;
   }
@@ -206,7 +203,7 @@ li {
   main,
   .game-name-heading {
     width: 100vw;
-    margin-bottom: 1.vh;
+    margin-bottom: 1vh;
     padding: 0;
     box-shadow: none;
   }

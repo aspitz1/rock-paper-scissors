@@ -86,7 +86,7 @@ class Game {
     let winner
 
     if (playerOne.fighter === playerTwo.fighter) {
-      return `<p class="draw">DRAW!</p>`;
+      return `<p>DRAW!</p>`;
 
     } else if (playerOne.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
@@ -143,7 +143,7 @@ class Game {
     return `<img data-token="${winner.playerToken}"
       class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
       ${winner.playerToken} who is excited to be here!">
-      <p class="winner heading-info">The ${winner.playerToken} won!</p>
+      <p class="heading-info">The ${winner.playerToken} won!</p>
       <img data-token="${winner.playerToken}"
       class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
       ${winner.playerToken} who is excited to be here!">`
