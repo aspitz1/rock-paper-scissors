@@ -20,7 +20,7 @@
       <section class="player-section-one">
         <h1 class="player-heading">Human!</h1>
         <div id="playerImageWrapper" class="player-image"></div>
-        <p id="humanWins" class="win-counter">Wins: 0</p>
+        <p id="humanWins" class="win-counter"></p>
         <button type="button" name="switch-game-style" id="switchGame"
           class="switch-game hidden">Switch Game Style</button>
 
@@ -52,12 +52,16 @@
             <li  data-game="extra">Tape > Scissors & Rock</li>
           </ul>
         </div>
+          <button type="button" name="clear-wins"
+            id="clearWins"
+            class="clear-wins hidden">Clear Wins</button>
+
         <section id="gameplay" class="gameplay hidden"></section>
       </main>
       <section class="player-section-two">
         <h1 class="player-heading">Computer!</h1>
         <div id="playerImageWrapper" class="player-image"></div>
-        <p id="computerWins" class="win-counter">Wins: 0</p>
+        <p id="computerWins" class="win-counter"></p>
       </section>
     </div>
     <script src="./src/game.js"></script>
