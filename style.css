@@ -31,10 +31,9 @@ main {
 
 .game-name-heading {
   width: 100%;
-  padding: 2vh 0 2.5vh 0;
+  padding: 3vh 0 3vh 0;
   margin-bottom: 3vh;
-  font-family: 'Press Start 2P', sans-serif;
-  font-size: 1.8em;
+  font-size: 3.5em;
   color: #E9FAFF;
   background: #0299c3;
   box-shadow: 3px 3px 5px #373737;
