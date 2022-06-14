@@ -1,4 +1,5 @@
 # Rock Paper Scissors
+**[Link to Deployed Page](https://aspitz1.github.io/rock-paper-scissors/)**
 ## Introduction
 Ahh the nostalgia of rock paper scissors. This game will give you just that! All
 the fun of the OG game plus something a little EXTRA. EXTRA meaning a couple new
@@ -20,6 +21,7 @@ is a counter under each player token that keeps track of wins. If you would like
 to go back to the main page to choose a different game style, do so by clicking
 the button under the human token. This button is only available during the phase
 of the game where fighters would be chosen.
+![Landing Page](./assets/landing.png)
 <br><br>
 This game of rock paper scissors is set up using two classes, a Player class and
 a Game class. The fighters and players are dynamic and can be changed using
@@ -43,10 +45,13 @@ underneath the function it is called in.
 The asset files should have naming conventions that match the values of the
 fighters. They are interpolated into a file path in the main.js to
 display the images.
+![Classic Fighters](./assets/classic-view)
+![EXTRA Fighters](./assets/extra-view)
 <br><br>
 The app utilizes local storage for saving the data of each player through a
 refresh. There is a button provided on the main page to clear the storage when
 there is data in the local storage.
+![Landing Page with Clear Wins](./assets/clear-wins.png)
 <br><br>
 This app is responsive and has css for phones, medium screens and large screens.
 # Game Rules
