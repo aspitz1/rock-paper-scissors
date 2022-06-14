@@ -57,6 +57,8 @@ there is data in the local storage.
 <br><br>
 This app is responsive and has css for phones, medium screens and large screens.
 # Game Rules
+If you are going to fork and clone this repo feel free to add your own Fighters!
+Follow these rules when creating your fighter object.
 ## Classic
 fighterOne > fighterThree
 <br><br>
