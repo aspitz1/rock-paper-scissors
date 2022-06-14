@@ -1,13 +1,14 @@
+const clearWins = document.querySelector('#clearWins');
 const computerWins = document.querySelector('#computerWins');
 const computerWinsDisplay = document.querySelector('#computerWins');
 const gameplaySection = document.querySelector('#gameplay');
 const headingInfo = document.querySelector('#headingInfoWrapper');
 const humanWins = document.querySelector('#humanWins');
 const humanWinsDispaly = document.querySelector('#humanWins');
-const playerImage = document.querySelectorAll('#playerImageWrapper');
 const originalHeadingInfo =
   document.querySelector('#headingInfoWrapper').innerHTML;
 
+const playerImage = document.querySelectorAll('#playerImageWrapper');
 const selectGameStyle = document.querySelectorAll('#selectGameButton');
 const switchGameStyleBtn = document.querySelector('#switchGame');
 
@@ -24,11 +25,26 @@ const secondPlayer = new Player('computer');
 
 const game = new Game(fighters);
 
+clearWins.addEventListener('click', clearWinsLocalStorage);
 gameplaySection.addEventListener('click', gameplayHandeler);
 selectGameStyle[0].addEventListener('click', displayGameChoice);
 selectGameStyle[1].addEventListener('click', displayGameChoice);
 switchGameStyleBtn.addEventListener('click', homeView);
 window.addEventListener('load', displayPlayerImage);
+
+function clearWinsLocalStorage() {
+  clearWins.classList.add('hidden');
+  humanWins.classList.add('win-counter-update');
+  computerWins.classList.add('win-counter-update');
+  localStorage.clear();
+  firstPlayer.wins = 0;
+  secondPlayer.wins = 0;
+  displayWins();
+  setTimeout(function() {
+    humanWins.classList.remove('win-counter-update');
+    computerWins.classList.remove('win-counter-update');
+  }, 600)
+}
 
 function gameplayHandeler(event) {
   if(event.target.getAttribute('data-fighter')) {
@@ -98,6 +114,7 @@ function saveWinsToStorage() {
 function displayGameChoice() {
   selectGameStyle[0].classList.add('hidden');
   selectGameStyle[1].classList.add('hidden');
+  clearWins.classList.add('hidden')
   gameplay.classList.remove('hidden')
 
   game.setCurrentGameStyle(event.target.getAttribute('data-game')[0]
@@ -123,7 +140,11 @@ function displayGame() {
 }
 
 function homeView() {
-  gameplay.classList.add('hidden')
+  if (localStorage.length) {
+    clearWins.classList.remove('hidden');
+  }
+
+  gameplay.classList.add('hidden');
   selectGameStyle[0].classList.remove('hidden');
   selectGameStyle[1].classList.remove('hidden');
   switchGameStyleBtn.classList.add('hidden');
@@ -146,8 +167,12 @@ function displayPlayerImage() {
 function displayWins() {
   if (localStorage.length) {
     retrieveWinsFromStorage()
-    humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
-    computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
+    humanWins.innerText = 'Wins: ' + firstPlayer.wins;
+    computerWins.innerText = 'Wins: ' + secondPlayer.wins;
+    clearWins.classList.remove('hidden')
+  } else {
+    humanWins.innerText = 'Wins: 0';
+    computerWins.innerText = 'Wins: 0'
   }
 }
 
