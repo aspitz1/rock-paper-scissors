@@ -1,31 +1,31 @@
 class Game {
   constructor(fighters) {
-    this.fighterOne = fighters.fighterOne
-    this.fighterTwo = fighters.fighterTwo
-    this.fighterThree = fighters.fighterThree
-    this.fighterFour = fighters.fighterFour
-    this.fighterFive = fighters.fighterFive
+    this.fighterOne = fighters.fighterOne;
+    this.fighterTwo = fighters.fighterTwo;
+    this.fighterThree = fighters.fighterThree;
+    this.fighterFour = fighters.fighterFour;
+    this.fighterFive = fighters.fighterFive;
     this.gameFightersClassic = [this.fighterOne, this.fighterTwo,
-      this.fighterThree]
+      this.fighterThree];
 
     this.gameFightersExtra = [this.fighterOne, this.fighterTwo,
-      this.fighterThree, this.fighterFour, this.fighterFive]
+      this.fighterThree, this.fighterFour, this.fighterFive];
 
-    this.currentGameStyle
-    this.currentGameStyleName
+    this.currentGameStyle;
+    this.currentGameStyleName;
   }
 
   setCurrentGameStyle(dataAttribute) {
-    this.currentGameStyleName = dataAttribute
-    this.currentGameStyle = this[`gameFighters${this.currentGameStyleName}`]
+    this.currentGameStyleName = dataAttribute;
+    this.currentGameStyle = this[`gameFighters${this.currentGameStyleName}`];
   }
 
   fighterChoiceVsComputer(eventTargetDataAttribute, human, computer) {
     human.changeTurns();
     if (human.isTurn) {
       human.chooseFighter(eventTargetDataAttribute, this.currentGameStyle)
-      human.changeTurns()
-      computer.changeTurns()
+      human.changeTurns();
+      computer.changeTurns();
     }
 
     if (computer.isTurn) {
@@ -69,18 +69,18 @@ class Game {
       winner = playerTwo;
 
     } else {
-      return 'DRAW!'
+      return 'DRAW!';
     }
 
     winner.addWin();
-    return winner
+    return winner;
   }
 
   gameplayExtra(playerOne, playerTwo) {
-    let winner
+    let winner;
 
     if (playerOne.fighter === playerTwo.fighter) {
-      return 'DRAW!'
+      return 'DRAW!';
 
     } else if (playerOne.fighter === this.fighterOne &&
       [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
@@ -134,7 +134,7 @@ class Game {
     }
 
     winner.addWin();
-    return winner
+    return winner;
   }
 
 }
