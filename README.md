@@ -14,7 +14,7 @@ When you land on the main page you will see a human player section on the left
 and a computer player section on the right. The main part of the page will
 display two options for game play. After choosing your gameplay option the HTML
 will change to display the options for fighters as images. Click on your choice
-and the HTML will immediately change to display the fighter choices of the
+and the HTML will immediately change to display the fighter choice of the
 human and computer player, along with text to say who won. The game board will
 automatically be redisplayed with the choice of fighters for another round. There
 is a counter under each player token that keeps track of wins. If you would like
@@ -22,6 +22,10 @@ to go back to the main page to choose a different game style, do so by clicking
 the button under the human token. This button is only available during the phase
 of the game where fighters would be chosen.
 ![Landing Page](./assets/landing.png)
+<br><br>
+![Classic Fighters](./assets/classic-view.png)
+<br><br>
+![EXTRA Fighters](./assets/extra-view.png)
 <br><br>
 This game of rock paper scissors is set up using two classes, a Player class and
 a Game class. The fighters and players are dynamic and can be changed using
@@ -45,8 +49,6 @@ underneath the function it is called in.
 The asset files should have naming conventions that match the values of the
 fighters. They are interpolated into a file path in the main.js to
 display the images.
-![Classic Fighters](./assets/classic-view.png)
-![EXTRA Fighters](./assets/extra-view.png)
 <br><br>
 The app utilizes local storage for saving the data of each player through a
 refresh. There is a button provided on the main page to clear the storage when
