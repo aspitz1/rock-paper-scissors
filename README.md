@@ -45,8 +45,8 @@ underneath the function it is called in.
 The asset files should have naming conventions that match the values of the
 fighters. They are interpolated into a file path in the main.js to
 display the images.
-![Classic Fighters](./assets/classic-view)
-![EXTRA Fighters](./assets/extra-view)
+![Classic Fighters](./assets/classic-view.png)
+![EXTRA Fighters](./assets/extra-view.png)
 <br><br>
 The app utilizes local storage for saving the data of each player through a
 refresh. There is a button provided on the main page to clear the storage when
