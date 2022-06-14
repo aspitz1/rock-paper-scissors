@@ -44,6 +44,10 @@ The asset files should have naming conventions that match the values of the
 fighters. They are interpolated into a file path in the main.js to
 display the images.
 <br><br>
+The app utilizes local storage for saving the data of each player through a
+refresh. There is a button provided on the main page to clear the storage when
+there is data in the local storage.
+<br><br>
 This app is responsive and has css for phones, medium screens and large screens.
 # Game Rules
 ## Classic
