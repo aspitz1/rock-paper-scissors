@@ -9,12 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        rel="stylesheet">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
     <div>
-      <span class="background-image" roll="img" aria-label="poofy blue clouds"></span>
+      <span class="background-image" roll="img" aria-label="poofy blue clouds">
+      </span>
     </div>
     <div class="game-container">
       <section class="player-section-one">
@@ -30,20 +39,26 @@
         <div id="headingInfoWrapper" class="heading-info-wrapper">
           <p class="heading-info">Choose Game Style</p>
         </div>
-        <div data-role="button" id="selectGameButton"
+        <div data-game="classic" id="selectGameButton"
           class="classic-button">
 
-          <h2 data-game="classic" role="button" aria-label="click to choose classic gameplay" class="game-option-heading">Classic</h2>
+          <h2 data-game="classic" role="button"
+            aria-label="click to choose classic gameplay"
+            class="game-option-heading">Classic</h2>
+
           <ul data-game="classic" class="game-option-button">
             <li data-game="classic">Rock > Scissors</li>
             <li data-game="classic">Paper > Rock</li>
             <li data-game="classic">Scissors > Paper</li>
           </ul>
         </div>
-        <div data-role="button" id="selectGameButton"
+        <div data-game="extra" id="selectGameButton"
           class="extra-button">
 
-          <h2  data-game="extra" role="button" aria-label="click to choose EXTRA gameplay" class="game-option-heading">EXTRA Mode</h2>
+          <h2  data-game="extra" role="button"
+            aria-label="click to choose EXTRA gameplay"
+            class="game-option-heading">EXTRA Mode</h2>
+
           <ul  data-game="extra" class="game-option-button">
             <li  data-game="extra">Rock > Scissors & Paper Clip</li>
             <li  data-game="extra">Paper > Rock & Tape</li>

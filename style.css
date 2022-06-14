@@ -31,9 +31,11 @@ main {
 
 .game-name-heading {
   width: 100%;
-  padding: 6vh 0 2.5vh 0;
+  padding: 2vh 0 2.5vh 0;
   margin-bottom: 3vh;
-  font-size: 2em;
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 1.8em;
+  color: #E9FAFF;
   background: #0299c3;
   box-shadow: 3px 3px 5px #373737;
 }
@@ -106,7 +108,6 @@ main {
 .extra-button:hover {
   cursor: pointer;
   background-color: #F6ABB5;
-  border: solid 2px #000;
   box-shadow: 4px 4px 5px #373737;
 }
 
@@ -128,7 +129,6 @@ main {
 .clear-wins:hover {
   cursor: pointer;
   background: #F6ABB5;
-  border: solid 1.5px #000;
   box-shadow: 2.5px 2.5px 4px #373737;
 }
 

@@ -33,10 +33,17 @@ switchGameStyleBtn.addEventListener('click', homeView);
 window.addEventListener('load', displayPlayerImage);
 
 function clearWinsLocalStorage() {
+  clearWins.classList.add('hidden');
+  humanWins.classList.add('win-counter-update');
+  computerWins.classList.add('win-counter-update');
   localStorage.clear();
   firstPlayer.wins = 0;
   secondPlayer.wins = 0;
   displayWins();
+  setTimeout(function() {
+    humanWins.classList.remove('win-counter-update');
+    computerWins.classList.remove('win-counter-update');
+  }, 600)
 }
 
 function gameplayHandeler(event) {
