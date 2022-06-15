@@ -77,11 +77,11 @@ function runGameplay() {
 
   gameplaySection.innerHTML = '';
 
-  gameplaySection.innerHTML +=
-  `<img class="game-fighter" src="assets/${firstPlayer.fighter}.png" alt="Humans
+  gameplaySection.innerHTML =
+  (`<img class="game-fighter" src="assets/${firstPlayer.fighter}.png" alt="Humans
     chose ${firstPlayer.fighter}">
   <img class="game-fighter" src="assets/${secondPlayer.fighter}.png"
-    alt="Humans chose ${secondPlayer.fighter}">`;
+    alt="Humans chose ${secondPlayer.fighter}">`);
 
   if (winner.playerToken === 'human') {
     winnerHumanUpdate()
@@ -89,7 +89,7 @@ function runGameplay() {
     winnerComputerUpdate()
   }
 }
-
+//could they be one function. Maybe pass a peramiter?
 function winnerHumanUpdate() {
   humanWins.classList.add('win-counter-update');
   humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
@@ -105,7 +105,7 @@ function winnerComputerUpdate() {
     computerWins.classList.remove('win-counter-update');
   }, 1300)
 }
-
+//***********
 function saveWinsToStorage() {
   localStorage.setItem("firstPlayerWins", JSON.stringify(firstPlayer));
   localStorage.setItem("secondPlayerWins", JSON.stringify(secondPlayer));

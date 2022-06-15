@@ -10,7 +10,7 @@ class Player {
   addWin(){
     this.wins++;
   }
-
+//object
   chooseFighter(eventTargetDataAttribute, currentGameStyle) {
     for (let i = 0; i < currentGameStyle.length; i++) {
       if (eventTargetDataAttribute === currentGameStyle[i]) {
