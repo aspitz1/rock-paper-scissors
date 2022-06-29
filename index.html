@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width">
     <meta property="og:image" content="#">
     <link rel="icon" href="assets/favicon.ico">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <div class="game-wrapper">
+      <section id="human" class="player-section">
+        <img class="player-token" src="assets/human.png" alt="Cute human with blue afro poofs who's excited to play!">
+        <h2 class="wins">Wins: 0</h2>
+      </section>
+      <div class="game-play-wrapper">
+        <h1 class="game-title">Rock Paper Scissors</h1>
+        <main id="gamePlay" class="game-play"></main>
+      </div>
+      <section id="computer" class="player-section">
+        <img class="player-token" src="assets/computer.png" alt="Hot pink computer with a smile face who's excited to play!">
+        <h2 class="wins">Wins: 0</h2>
+      </section>
+    </div>
     <script src="./src/game.js"></script>
     <script src="./src/player.js"></script>
     <script src="./src/main.js"></script>
