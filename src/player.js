@@ -8,4 +8,8 @@ class Player {
   addWin() {
     this.wins++;
   }
+
+  clearWins() {
+    this.wins = 0;
+  }
 }

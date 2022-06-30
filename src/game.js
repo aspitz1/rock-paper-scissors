@@ -25,9 +25,11 @@ class Game {
   chooseFighters(choice) {
     this.players.forEach(player => {
       if (player.player.isHuman) {
-        player.fighter = this.currentGameStyle.find(fighter => fighter.fighterType === choice);
+        player.fighter = 
+          this.currentGameStyle.find(fighter => fighter.fighterType === choice);
       } else {
-        player.fighter = this.currentGameStyle[Math.floor(Math.random() * this.currentGameStyle.length)];
+        player.fighter = 
+          this.currentGameStyle[Math.floor(Math.random() * this.currentGameStyle.length)];
       }
     })
   }
@@ -36,8 +38,10 @@ class Game {
     if (this.players[0].fighter.fighterType === this.players[1].fighter.fighterType) {
       return 'DRAW!';
     } else if (this.players[0].fighter.beats.includes(this.players[1].fighter.fighterType)) {
+      this.players[0].player.addWin();
       return this.players[0];
     } else {
+      this.players[1].player.addWin();
       return this.players[1];
     }
   }

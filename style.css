@@ -35,12 +35,21 @@
   list-style: none;
 }
 
-.fighter-wrapper{
+.fighter-wrapper,
+.result-wrapper {
   flex-direction: column;
+}
+
+.fighter-wrapper {
   width: 30%;
 }
+
 .fighter {
   width: 100%;
+}
+
+.result-fighter {
+  width: 50%;
 }
 
 .hidden {
