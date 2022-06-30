@@ -41,7 +41,7 @@ const displayGameChoices = () => {
   gamePlay.innerHTML = 
   `<p class="game-info">Choose your style here!</p>
    <label for="classic">
-     <ul class="rules">
+     <ul class="rules classic">
        <li>Rock > Scissors</li>
        <li>Paper > Rock</li>
        <li>Scissors > Paper</li>
@@ -49,8 +49,8 @@ const displayGameChoices = () => {
    </label>
    <button data-gameStyle="classic" id="classic" class="style-btn">Classic Gameplay</button>
    <label for="extra">
-     <ul class="rules">
-   <li>Rock > Scissors & Paper</li>
+     <ul class="rules extra">
+       <li>Rock > Scissors & Paper</li>
        <li>Paper > Rock & Tape</li>
        <li>Scissors > Paper & Paper-Clip</li>
        <li>Paper-Clip > Paper & Tape</li>
@@ -100,8 +100,16 @@ const displayResults = () => {
         src="assets/${player.fighter.fighterType}.png" 
         alt="${player.fighter.fighterType} with a smile on their face">`
   })
-
-  displayPlayerWins();
+  
+  if (winner === game.players[0]) {
+    displayPlayerWins();
+    humanWins.classList.add('highlight');
+    setTimeout(() => humanWins.classList.remove('highlight'), 1600);
+  } else if (winner === game.players[1]) {
+    displayPlayerWins();
+    computerWins.classList.add('highlight');
+    setTimeout(() => computerWins.classList.remove('highlight'), 1600);
+  }
   saveWinsToLocal();
 }
 

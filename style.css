@@ -3,24 +3,64 @@
 *::after {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto Mono', monospace;
 }
 
 .game-wrapper,
 .player-section,
+.clear-btn-wrapper,
 .game-play-wrapper,
+.game-play,
 .fighters-wrapper,
-.fighters-wrapper {
+.fighter-wrapper,
+.result-wrapper {
   display: flex;
 }
 
+.game-wrapper,
+.game-play,
+.fighters-wrapper,
+.result-wrapper {
+  justify-content: center;
+}
+
 .player-section,
-.game-play-wrapper {
+.game-play-wrapper,
+.game-play,
+.fighter-wrapper {
   flex-direction: column;
+  align-items: center;
+}
+
+.player-section {
+  justify-content: space-between;
+  height: 50%;
 }
 
 .fighters-wrapper {
   flex-wrap: wrap;
+}
+
+.game-wrapper {
+  height: 100vh;
+  font-family: 'Roboto Mono', monospace;
+  color: #F7B182;
+  background: #1f2139;
+}
+
+.game-title {
+  margin: 4vh 0 4vh 0;
+  color: #B7B3EF;
+}
+
+.game-info,
+.wins {
+  color: #CE0EA4;
+}
+
+.game-info {
+  margin-bottom: 3vh;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
 .game-play-wrapper {
@@ -31,25 +71,79 @@
   width: 25vw;
 }
 
+.player-token {
+  margin-top: 4vh;
+}
+
 .rules {
+  text-align: center;
   list-style: none;
 }
 
-.fighter-wrapper,
-.result-wrapper {
-  flex-direction: column;
+.style-btn {
+  margin: .5vh 0 4vh 0;
 }
 
-.fighter-wrapper {
+.fighter-wrapper,
+.result-fighter {
   width: 30%;
 }
 
+.game-play,
+.player-token,
 .fighter {
   width: 100%;
 }
 
-.result-fighter {
-  width: 50%;
+.rules {
+  margin-bottom: 1vh;
+}
+
+.highlight {
+  font-size: 2em;
+  color: #EE8F12;
+}
+
+.style-btn,
+.clear-btn,
+.fighter-btn,
+.main-btn {
+  padding: .4vh .5vh;
+  font-weight: bold;
+  border: none;
+  color: #000545;
+  border-radius: 3px;
+  transition: all .12s ease-in;
+  cursor: pointer;
+}
+
+.style-btn,
+.fighter-btn {
+  background-color: #45DEE6;
+}
+
+.main-btn,
+.clear-btn {
+  background-color: #EE8F12;
+}
+
+.main-btn {
+  margin-top: 3vh;
+  font-size: 1.5em;
+}
+
+.style-btn:hover,
+.fighter-btn:hover {
+  background-color: #CE0EA4;
+}
+
+.main-btn:hover,
+.clear-btn:hover {
+  background-color: #CE0EA4;
+}
+
+.fighter-btn {
+  margin-bottom: 2vh;
 }
 
 .hidden {
