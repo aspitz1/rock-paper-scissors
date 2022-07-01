@@ -86,7 +86,7 @@
 
 .fighter-wrapper,
 .result-fighter {
-  width: 30%;
+  width: 27%;
 }
 
 .game-play,
@@ -97,6 +97,7 @@
 
 .rules {
   margin-bottom: 1vh;
+  font-size: 1.5em;
 }
 
 .highlight {
@@ -133,6 +134,13 @@
 }
 
 .style-btn:hover,
+.clear-btn:hover,
+.fighter-btn:hover,
+.main-btn:hover {
+  box-shadow: 3px 3px 0 #FFF;
+}
+
+.style-btn:hover,
 .fighter-btn:hover {
   background-color: #CE0EA4;
 }
@@ -150,4 +158,70 @@
   display: none;
   width: 0;
   height: 0;
+}
+
+@media(max-width: 649px) {
+  .game-wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .game-title {
+    margin: 0;
+    font-size: 1.5em;
+  }
+
+  .game-info {
+    font-size: 1em;
+  }
+
+  .player-section {
+    width: 100%;
+    height: 20vh;
+    flex-direction: row;
+  }
+
+  .player-token {
+    width: 15vh;
+    margin-left: 1vh;
+  }
+
+  .wins {
+    margin-right: 2vh;
+  }
+
+  .rules {
+    font-size: 1em;
+  }
+
+  .fighter-btn {
+    font-size: .5em;
+  }
+
+  .main-btn {
+    font-size: .8em;
+  }
+
+}
+
+@media(max-width: 1000px) and (min-width: 650px) {
+
+  .player-section {
+    width: 15vw;
+  }
+
+  .rules {
+    font-size: 1em;
+  }
+
+
+  .fighter {
+    width: 50%;
+  }
+
+  .main-btn {
+    font-size: .9em;
+  }
 }
