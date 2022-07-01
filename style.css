@@ -134,13 +134,6 @@
 }
 
 .style-btn:hover,
-.clear-btn:hover,
-.fighter-btn:hover,
-.main-btn:hover {
-  box-shadow: 3px 3px 0 #FFF;
-}
-
-.style-btn:hover,
 .fighter-btn:hover {
   background-color: #CE0EA4;
 }
