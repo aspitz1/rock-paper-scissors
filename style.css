@@ -3,174 +3,155 @@
 *::after {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto Mono', monospace;
-}
-/* #518ee6 */
-body {
-  background: url(assets/clouds.jpg);
-  background-size: cover;
-
 }
 
-.game-container {
+.game-wrapper,
+.player-section,
+.clear-btn-wrapper,
+.game-play-wrapper,
+.game-play,
+.fighters-wrapper,
+.fighter-wrapper,
+.result-wrapper {
   display: flex;
-  justify-content: space-between;
 }
 
-main,
-.player-section-one,
-.player-section-two {
-  display: flex;
+.game-wrapper,
+.game-play,
+.fighters-wrapper,
+.result-wrapper {
+  justify-content: center;
+}
+
+.player-section,
+.game-play-wrapper,
+.game-play,
+.fighter-wrapper {
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
-main {
+
+.player-section {
+  justify-content: space-between;
+  height: 50%;
+}
+
+.fighters-wrapper {
+  flex-wrap: wrap;
+}
+
+.game-wrapper {
+  height: 100vh;
+  font-family: 'Roboto Mono', monospace;
+  color: #F7B182;
+  background: #1f2139;
+}
+
+.game-title {
+  margin: 4vh 0 4vh 0;
+  color: #B7B3EF;
+}
+
+.game-info,
+.wins {
+  color: #CE0EA4;
+}
+
+.game-info {
+  margin-bottom: 3vh;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.game-play-wrapper {
   width: 75vw;
 }
 
-.game-name-heading {
-  width: 100%;
-  padding: 3vh 0 3vh 0;
-  margin-bottom: 3vh;
-  font-size: 3.5em;
-  color: #FFF;
-  background: #000;
+.player-section {
+  width: 25vw;
 }
 
-.heading-info-wrapper {
-  height: 4.5vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 5vh;
-  font-size: 1.5em;
+.player-token {
+  margin-top: 4vh;
 }
 
-.player-section-one,
-.player-section-two {
-  width: 12.5vw;
-  height: 100vh;
-  padding: 6vh 3vw 0 3vw;
-  background: #FFF;
-}
-
-.player-heading {
-  margin-bottom: 6vh;
-  font-size: 1.5em;
-}
-
-.player-section-one {
-  padding-right: 3vw;
-  z-index: 1;
-  box-shadow: 3px 0 5px #373737;
-}
-
-.player-section-two {
-  padding-left: 3vw;
-  box-shadow: -3px 0 5px #373737;
-}
-
-.player-image {
-  width: 11.5vw;
-  margin-bottom: 3.5vh;
-}
-
-.win-counter {
-  width: 100%;
-  margin-bottom: 2vh;
-  padding: 5px;
-  font-size: 1.2em;
-  border-radius: 5px;
-  background: #0299c3;
-}
-
-.win-counter-update {
-  font-size: 1.5em;
-  color: #FFF;
-  transition: all .07s ease-out;
-}
-
-.classic-button,
-.extra-button {
-  margin-bottom: 6vh;
-  width: 300px;
-  padding: 1vh 0 1vh 0;
-  font-weight: lighter;
-  border-radius: 5px;
-  color: #FFF;
-  background-color: #000;
-  transition: all .2s ease;
-}
-
-.classic-button:hover,
-.extra-button:hover {
-  cursor: pointer;
-  color: #000;
-  background-color: #FFF;
-  box-shadow: 4px 4px 5px #373737;
-}
-
-.game-option-heading {
-  font-size: 1em;
-}
-
-.switch-game {
-  margin-bottom: 1vh;
-}
-
-.switch-game,
-.clear-wins {
-  padding: 7px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px;
-  background: #AFFC41;
-  transition: all .2s ease;
-}
-
-.switch-game:hover,
-.clear-wins:hover {
-  cursor: pointer;
-  background: #b2ff9e;
-  box-shadow: 2.5px 2.5px 4px #373737;
-}
-
-ul,
-.game-option-heading {
-  padding: .5vh;
-}
-
-li {
+.rules {
+  text-align: center;
   list-style: none;
 }
 
-.gameplay {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.style-btn {
+  margin: .5vh 0 4vh 0;
+}
+
+.fighter-wrapper,
+.result-fighter {
+  width: 27%;
+}
+
+.game-play,
+.player-token,
+.fighter {
   width: 100%;
-  padding: 3.5vh 0 3.5vh 0;
-  background: #000;
 }
 
-.game-fighter {
-  width: 20%;
-  margin: 0 2vw 1.5vh 2vw;
-  border-radius: 20px;
-  background: #AFFC41;
+.rules {
+  margin-bottom: 1vh;
+  font-size: 1.5em;
 }
 
-.game-fighter-button:hover {
-  background-color: #b2ff9e;
+.highlight {
+  font-size: 2em;
+  color: #EE8F12;
 }
 
-.player-image-small {
-  width: 4vh;
-}
-
-.game-fighter-button:hover {
+.style-btn,
+.clear-btn,
+.fighter-btn,
+.main-btn {
+  padding: .4vh .5vh;
+  font-weight: bold;
+  border: none;
+  color: #000545;
+  border-radius: 3px;
+  transition: all .12s ease-in;
   cursor: pointer;
+}
+
+.style-btn,
+.fighter-btn {
+  background-color: #45DEE6;
+}
+
+.main-btn,
+.clear-btn {
+  background-color: #EE8F12;
+}
+
+.main-btn {
+  margin-top: 3vh;
+  font-size: 1.5em;
+}
+
+.style-btn:hover,
+.clear-btn:hover,
+.fighter-btn:hover,
+.main-btn:hover {
+  box-shadow: 3px 3px 0 #FFF;
+}
+
+.style-btn:hover,
+.fighter-btn:hover {
+  background-color: #CE0EA4;
+}
+
+.main-btn:hover,
+.clear-btn:hover {
+  background-color: #CE0EA4;
+}
+
+.fighter-btn {
+  margin-bottom: 2vh;
 }
 
 .hidden {
@@ -180,121 +161,67 @@ li {
 }
 
 @media(max-width: 649px) {
-  .game-container {
+  .game-wrapper {
     flex-direction: column;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .player-section-one,
-  .player-section-two {
-    display: flex;
-    width: 100vw;
-    height: auto;
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .player-heading {
-    font-size: 1.2em;
-  }
-
-  .player-heading,
-  .player-image {
+  
+  .game-title {
     margin: 0;
-  }
-
-  .player-image {
-    width: 20vw;
-  }
-
-  .win-counter {
-    width: 100%;
-    padding: 0;
-    margin-bottom: 0;
-    border-radius: 0;
-    background-color: #0299c3;
-  }
-
-  .switch-game,
-  .clear-wins {
-    box-shadow: 2.5px 2.5px 4px #373737;
-  }
-
-  main {
-    display: flex;
-    height: 75vh;
-    justify-content: flex-start;
-  }
-
-  main,
-  .game-name-heading {
-    width: 100vw;
-    margin-bottom: 1vh;
-    padding: 0;
-    box-shadow: none;
-  }
-
-  .game-name-heading {
-    font-size: 1.3em;
-  }
-
-  .game-option-heading {
-    font-size: 1em;
-  }
-
-  .game-option-heading {
-    margin-bottom: 1vh;
-  }
-
-  .heading-info-wrapper {
-    margin-bottom: 1vh;
-    font-size: 1.05em;
-  }
-
-  .classic-button,
-  .extra-button {
-    width: 60%;
-    margin-bottom: 3vh;
-    box-shadow: 4px 4px 5px #373737;
-  }
-
-  ul {
-    font-size: 10pt;
-  }
-
-  .game-fighter-button{
-    padding: 0 3vw 0 3vw;
-  }
-}
-
-@media(max-width: 1000px) and (min-width: 650px) {
-  .game-name-heading {
     font-size: 1.5em;
   }
 
-  .heading-info-wrapper {
-    margin-bottom: 1vh;
-    font-size: 1.05em;
+  .game-info {
+    font-size: 1em;
   }
 
-  .player-section-one,
-  .player-section-two {
-    width: 20vw;
+  .player-section {
+    width: 100%;
+    height: 20vh;
+    flex-direction: row;
   }
 
-  .classic-button,
-  .extra-button {
-    width: 60%;
-    margin-bottom: 3vh;
-    box-shadow: 4px 4px 5px #373737;
+  .player-token {
+    width: 15vh;
+    margin-left: 1vh;
   }
 
-  ul {
-    font-size: 10pt;
+  .wins {
+    margin-right: 2vh;
   }
 
-  .switch-game,
-  .clear-wins {
-    box-shadow: 2.5px 2.5px 4px #373737;
+  .rules {
+    font-size: 1em;
+  }
+
+  .fighter-btn {
+    font-size: .5em;
+  }
+
+  .main-btn {
+    font-size: .8em;
+  }
+
+}
+
+@media(max-width: 1000px) and (min-width: 650px) {
+
+  .player-section {
+    width: 15vw;
+  }
+
+  .rules {
+    font-size: 1em;
+  }
+
+
+  .fighter {
+    width: 50%;
+  }
+
+  .main-btn {
+    font-size: .9em;
   }
 }

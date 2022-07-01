@@ -1,140 +1,49 @@
 class Game {
-  constructor(fighters) {
-    this.fighterOne = fighters.fighterOne;
-    this.fighterTwo = fighters.fighterTwo;
-    this.fighterThree = fighters.fighterThree;
-    this.fighterFour = fighters.fighterFour;
-    this.fighterFive = fighters.fighterFive;
-    this.gameFightersClassic = [this.fighterOne, this.fighterTwo,
-      this.fighterThree];
+  constructor() {
+    this.players = [
+      {player: new Player('human'), fighter: null}, 
+      {player: new Player('computer'), fighter: null}
+    ];
 
-    this.gameFightersExtra = [this.fighterOne, this.fighterTwo,
-      this.fighterThree, this.fighterFour, this.fighterFive];
-
+    this.fighters = [
+      {fighterType: 'rock', beats: ['scissors', 'paper-clip']},
+      {fighterType: 'paper', beats: ['rock', 'tape']},
+      {fighterType: 'scissors', beats: ['paper', 'paper-clip']},
+      {fighterType: 'paper-clip', beats: ['paper', 'tape']},
+      {fighterType: 'tape', beats: ['rock', 'scissors']}
+    ]
+    
+    this.classicFighters = this.fighters.slice(0, 3);
+    this.extraFighters = this.fighters;
     this.currentGameStyle;
-    this.currentGameStyleName;
   }
 
-  setCurrentGameStyle(dataAttribute) {
-    this.currentGameStyleName = dataAttribute;
-    this.currentGameStyle = this[`gameFighters${this.currentGameStyleName}`];
+  setCurrentGameStyle(style) {
+    this.currentGameStyle = this[`${style}Fighters`]
   }
 
-  fighterChoiceVsComputer(eventTargetDataAttribute, human, computer) {
-    human.changeTurns();
-    if (human.isTurn) {
-      human.chooseFighter(eventTargetDataAttribute, this.currentGameStyle)
-      human.changeTurns();
-      computer.changeTurns();
-    }
-
-    if (computer.isTurn) {
-      computer.randomFighter(this.currentGameStyle);
-      computer.changeTurns();
-    }
-
+  chooseFighters(choice) {
+    this.players.forEach(player => {
+      if (player.player.isHuman) {
+        player.fighter = 
+          this.currentGameStyle.find(fighter => fighter.fighterType === choice);
+      } else {
+        player.fighter = 
+          this.currentGameStyle[Math.floor(Math.random() * this.currentGameStyle.length)];
+      }
+    })
   }
 
-  gameplayClassic(playerOne, playerTwo) {
-    let winner
-
-    if (playerOne.fighter === this.fighterOne &&
-      playerTwo.fighter === this.fighterThree) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterOne &&
-      playerOne.fighter === this.fighterThree) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterTwo &&
-      playerTwo.fighter === this.fighterOne) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterTwo &&
-      playerOne.fighter === this.fighterOne) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterThree &&
-      playerTwo.fighter === this.fighterTwo) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterThree &&
-      playerOne.fighter === this.fighterTwo) {
-
-      winner = playerTwo;
-
+  winner() {
+    if (this.players[0].fighter.fighterType === this.players[1].fighter.fighterType) {
+      return 'DRAW!';
+    } else if (this.players[0].fighter.beats.includes(this.players[1].fighter.fighterType)) {
+      this.players[0].player.addWin();
+      return this.players[0];
     } else {
-      return 'DRAW!';
+      this.players[1].player.addWin();
+      return this.players[1];
     }
-
-    winner.addWin();
-    return winner;
-  }
-
-  gameplayExtra(playerOne, playerTwo) {
-    let winner;
-
-    if (playerOne.fighter === playerTwo.fighter) {
-      return 'DRAW!';
-
-    } else if (playerOne.fighter === this.fighterOne &&
-      [this.fighterThree, this.fighterFour].includes(playerTwo.fighter )) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterOne &&
-      [this.fighterThree, this.fighterFour].includes(playerOne.fighter)) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterTwo &&
-      [this.fighterOne, this.fighterFive].includes(playerTwo.fighter)) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterTwo &&
-      [this.fighterOne, this.fighterFive].includes(playerOne.fighter)) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterThree &&
-      [this.fighterTwo, this.fighterFour].includes(playerTwo.fighter)) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterThree &&
-      [this.fighterTwo, this.fighterFour].includes(playerOne.fighter)) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterFour &&
-      [this.fighterTwo, this.fighterFive].includes(playerTwo.fighter)) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterFour &&
-      [this.fighterTwo, this.fighterFive].includes(playerOne.fighter)) {
-
-      winner = playerTwo;
-
-    } else if (playerOne.fighter === this.fighterFive &&
-      [this.fighterThree, this.fighterOne].includes(playerTwo.fighter)) {
-
-      winner = playerOne;
-
-    } else if (playerTwo.fighter === this.fighterFive &&
-      [this.fighterThree, this.fighterOne].includes(playerOne.fighter)) {
-
-      winner = playerTwo;
-    }
-
-    winner.addWin();
-    return winner;
   }
 
 }

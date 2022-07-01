@@ -1,182 +1,141 @@
-const clearWins = document.querySelector('#clearWins');
-const computerWins = document.querySelector('#computerWins');
-const computerWinsDisplay = document.querySelector('#computerWins');
-const gameplaySection = document.querySelector('#gameplay');
-const headingInfo = document.querySelector('#headingInfoWrapper');
 const humanWins = document.querySelector('#humanWins');
-const humanWinsDispaly = document.querySelector('#humanWins');
-const originalHeadingInfo =
-  document.querySelector('#headingInfoWrapper').innerHTML;
+const computerWins = document.querySelector('#computerWins');
+const clearWinsBtn = document.querySelector('#clearWins');
+const gamePlay = document.querySelector('#gamePlay');
+const extraButton = document.querySelector('#extra');
 
-const playerImage = document.querySelectorAll('#playerImageWrapper');
-const selectGameStyle = document.querySelectorAll('#selectGameButton');
-const switchGameStyleBtn = document.querySelector('#switchGame');
+const game = new Game();
 
-const fighters = {
-  fighterOne: 'rock',
-  fighterTwo: 'paper',
-  fighterThree: 'scissors',
-  fighterFour: 'paper-clip',
-  fighterFive: 'tape'
-};
+window.addEventListener('load', () => {
+  displayGameChoices();
+  if (localStorage.length) {
+    getWinsFromLocal();
+  }
+  displayPlayerWins();
 
-const firstPlayer = new Player('human');
-const secondPlayer = new Player('computer');
+})
 
-const game = new Game(fighters);
+gamePlay.addEventListener('click', e => {
+  if (e.target.getAttribute('data-gameStyle')) {
+    game.setCurrentGameStyle(e.target.getAttribute('data-gameStyle'));
+    displayTokens();
+  } else if (e.target.getAttribute('data-fighter')) {
+    game.chooseFighters(e.target.getAttribute('data-fighter'));
+    displayResults();
+    setTimeout(displayTokens, 1600);
+  } else if(e.target.id === 'main') {
+    displayGameChoices();
+  }
 
-clearWins.addEventListener('click', clearWinsLocalStorage);
-gameplaySection.addEventListener('click', gameplayHandeler);
-selectGameStyle[0].addEventListener('click', displayGameChoice);
-selectGameStyle[1].addEventListener('click', displayGameChoice);
-switchGameStyleBtn.addEventListener('click', homeView);
-window.addEventListener('load', displayPlayerImage);
+})
 
-function clearWinsLocalStorage() {
-  clearWins.classList.add('hidden');
-  humanWins.classList.add('win-counter-update');
-  computerWins.classList.add('win-counter-update');
+clearWinsBtn.addEventListener('click', () => {
+  game.players.forEach(player => player.player.clearWins());
   localStorage.clear();
-  firstPlayer.wins = 0;
-  secondPlayer.wins = 0;
-  displayWins();
-  setTimeout(function() {
-    humanWins.classList.remove('win-counter-update');
-    computerWins.classList.remove('win-counter-update');
-  }, 600)
+  showHideClearWinsBtn();
+  displayPlayerWins();
+
+});
+
+const displayGameChoices = () => {
+  gamePlay.innerHTML = 
+  `<p class="game-info">Choose your style here!</p>
+   <label for="classic">
+     <ul class="rules classic">
+       <li>Rock > Scissors</li>
+       <li>Paper > Rock</li>
+       <li>Scissors > Paper</li>
+     </ul>
+   </label>
+   <button data-gameStyle="classic" id="classic" class="style-btn">Classic Gameplay</button>
+   <label for="extra">
+     <ul class="rules extra">
+       <li>Rock > Scissors & Paper</li>
+       <li>Paper > Rock & Tape</li>
+       <li>Scissors > Paper & Paper-Clip</li>
+       <li>Paper-Clip > Paper & Tape</li>
+       <li>Tape > Scissors & Rock</li>
+     </ul>
+   </label>
+   <button data-gameStyle="extra" id="extra" class="style-btn">EXTRA Gameplay</button>`;
+
 }
 
-function gameplayHandeler(event) {
-  if(event.target.getAttribute('data-fighter')) {
-    game.fighterChoiceVsComputer(event.target.getAttribute('data-fighter'),
-      firstPlayer, secondPlayer);
+const displayTokens = () => {
+  gamePlay.innerHTML = 
+  `<p class="game-info">Choose your FIGHTER!</p>
+   <div id="fighters" class="fighters-wrapper"></div>`;
 
-    runGameplay();
-    setTimeout(displayGame, 1300);
-  }
+  game.currentGameStyle.forEach(fighter => {
+    document.querySelector("#fighters").innerHTML += 
+    `<div class="fighter-wrapper">
+      <img data-fighter="${fighter.fighterType}" class="fighter" 
+        src="assets/${fighter.fighterType}.png" 
+        alt="${fighter.fighterType} with a smile on their face">
 
-  saveWinsToStorage()
+      <button data-fighter="${fighter.fighterType}" 
+        class="fighter-btn">${fighter.fighterType.toUpperCase()}</button>
+
+    </div>`;
+  })
+
+  gamePlay.innerHTML += 
+    `<button id="main" class="main-btn">Back to Main</button>`
+
 }
 
-function runGameplay() {
-  switchGameStyleBtn.classList.add('hidden');
-  const winner = game[`gameplay${game.currentGameStyleName}`](firstPlayer,
-    secondPlayer);
-
-  if(winner === 'DRAW!') {
-    headingInfo.innerHTML = winner;
+const displayResults = () => {
+  const winner = game.winner();
+  if (winner === 'DRAW!') {
+    gamePlay.innerHTML = `<p class="game-info">It's a ${winner}</p>`
   } else {
-    headingInfo.innerHTML = `<img data-token="${winner.playerToken}"
-      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
-      ${winner.playerToken} who is excited to be here!">
-      <p class="winner">The ${winner.playerToken} won!</p>
-      <img data-token="${winner.playerToken}"
-      class="player-image-small" src="assets/${winner.playerToken}.png" alt="Cute
-      ${winner.playerToken} who is excited to be here!">`;
+    gamePlay.innerHTML = 
+      `<p class="game-info">The ${winner.player.playerToken.toUpperCase(0)} won!</p>`
   }
 
-  gameplaySection.innerHTML = '';
-
-  gameplaySection.innerHTML +=
-  `<img class="game-fighter" src="assets/${firstPlayer.fighter}.png" alt="Humans
-    chose ${firstPlayer.fighter}">
-  <img class="game-fighter" src="assets/${secondPlayer.fighter}.png"
-    alt="Humans chose ${secondPlayer.fighter}">`;
-
-  if (winner.playerToken === 'human') {
-    winnerHumanUpdate()
-  } else if (winner.playerToken === 'computer') {
-    winnerComputerUpdate()
+  gamePlay.innerHTML += `<div id="result" class="result-wrapper"></div>`
+  game.players.forEach(player => {
+    document.querySelector("#result").innerHTML += 
+    `<img class="result-fighter" 
+        src="assets/${player.fighter.fighterType}.png" 
+        alt="${player.fighter.fighterType} with a smile on their face">`
+  })
+  
+  if (winner === game.players[0]) {
+    displayPlayerWins();
+    humanWins.classList.add('highlight');
+    setTimeout(() => humanWins.classList.remove('highlight'), 1600);
+  } else if (winner === game.players[1]) {
+    displayPlayerWins();
+    computerWins.classList.add('highlight');
+    setTimeout(() => computerWins.classList.remove('highlight'), 1600);
   }
+  saveWinsToLocal();
 }
 
-function winnerHumanUpdate() {
-  humanWins.classList.add('win-counter-update');
-  humanWins.innerHTML = 'Wins: ' + firstPlayer.wins;
-  setTimeout(function() {
-    humanWins.classList.remove('win-counter-update');
-  }, 1300)
+const displayPlayerWins = () => {
+  humanWins.innerText = `Wins: ${game.players[0].player.wins}`;
+  computerWins.innerText = `Wins: ${game.players[1].player.wins}`;
+  showHideClearWinsBtn();
+
 }
 
-function winnerComputerUpdate() {
-  computerWins.classList.add('win-counter-update');
-  computerWins.innerHTML = 'Wins: ' + secondPlayer.wins;
-  setTimeout(function() {
-    computerWins.classList.remove('win-counter-update');
-  }, 1300)
-}
-
-function saveWinsToStorage() {
-  localStorage.setItem("firstPlayerWins", JSON.stringify(firstPlayer));
-  localStorage.setItem("secondPlayerWins", JSON.stringify(secondPlayer));
-}
-
-function displayGameChoice() {
-  selectGameStyle[0].classList.add('hidden');
-  selectGameStyle[1].classList.add('hidden');
-  clearWins.classList.add('hidden')
-  gameplay.classList.remove('hidden')
-
-  game.setCurrentGameStyle(event.target.getAttribute('data-game')[0]
-    .toUpperCase() + event.target.getAttribute('data-game').substring(1));
-
-  displayGame();
-}
-
-function displayGame() {
-  headingInfo.innerHTML = 'Choose your fighter!';
-  switchGameStyleBtn.classList.remove('hidden');
-
-  gameplaySection.innerHTML = '';
-
-  for (let i = 0; i < game.currentGameStyle.length; i++) {
-    gameplaySection.innerHTML +=
-    `<img role="button" aria-lable="click to chose ${game.currentGameStyle[i]}"
-      data-fighter="${game.currentGameStyle[i]}"
-      class="game-fighter game-fighter-button"
-      src="assets/${game.currentGameStyle[i]}.png"
-      alt="Cute ${game.currentGameStyle[i]} that's smiling!">`;
-  };
-}
-
-function homeView() {
-  if (localStorage.length) {
-    clearWins.classList.remove('hidden');
-  }
-
-  gameplay.classList.add('hidden');
-  selectGameStyle[0].classList.remove('hidden');
-  selectGameStyle[1].classList.remove('hidden');
-  switchGameStyleBtn.classList.add('hidden');
-  gameplaySection.innerHTML = '';
-  headingInfo.innerHTML = originalHeadingInfo;
-}
-
-function displayPlayerImage() {
-  playerImage[0].innerHTML += `<img data-token="${firstPlayer.playerToken}"
-    class="player-image" src="assets/${firstPlayer.playerToken}.png" alt="Cute
-    ${firstPlayer.playerToken} who is excited to be here!">`;
-
-  playerImage[1].innerHTML += `<img data-token="${secondPlayer.playerToken}"
-    class="player-image" src="assets/${secondPlayer.playerToken}.png"
-    alt="Cute ${secondPlayer.playerToken} who is exciter to be here!">`;
-
-  displayWins()
-}
-
-function displayWins() {
-  if (localStorage.length) {
-    retrieveWinsFromStorage()
-    humanWins.innerText = 'Wins: ' + firstPlayer.wins;
-    computerWins.innerText = 'Wins: ' + secondPlayer.wins;
-    clearWins.classList.remove('hidden')
+const showHideClearWinsBtn = () => {
+  if (game.players[0].player.wins || game.players[1].player.wins) {
+    clearWinsBtn.classList.remove('hidden');
   } else {
-    humanWins.innerText = 'Wins: 0';
-    computerWins.innerText = 'Wins: 0'
+    clearWinsBtn.classList.add('hidden');
   }
+
 }
 
-function retrieveWinsFromStorage() {
-  firstPlayer.wins = JSON.parse(localStorage.firstPlayerWins).wins;
-  secondPlayer.wins = JSON.parse(localStorage.secondPlayerWins).wins;
+const saveWinsToLocal = () => {
+  localStorage.setItem('humanWins', JSON.stringify(game.players[0].player));
+  localStorage.setItem('computerWins', JSON.stringify(game.players[1].player));
+
+}
+
+const getWinsFromLocal = () => {
+  game.players[0].player.wins = JSON.parse(localStorage.humanWins).wins;
+  game.players[1].player.wins = JSON.parse(localStorage.computerWins).wins;
 }

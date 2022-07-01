@@ -3,74 +3,28 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta property="og:image" content="./assets/extra.png">
+    <meta property="og:image" content="#">
     <link rel="icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap"
-      rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap" rel="stylesheet">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <div>
-      <span class="background-image" roll="img" aria-label="poofy blue clouds">
-      </span>
-    </div>
-    <div class="game-container">
-      <section class="player-section-one">
-        <h1 class="player-heading">Human!</h1>
-        <div id="playerImageWrapper" class="player-image"></div>
-        <p id="humanWins" class="win-counter"></p>
-        <button type="button" name="switch-game-style" id="switchGame"
-          class="switch-game hidden">Switch Game Style</button>
-
+    <div class="game-wrapper">
+      <section id="human" class="player-section">
+        <img class="player-token" src="assets/human.png" alt="Cute human with blue afro poofs who's excited to play!">
+        <button id="clearWins" class="clear-btn hidden">Clear Wins</button>
+        <h2 id="humanWins" class="wins"></h2>
       </section>
-      <main>
-        <h1 class="game-name-heading">Rock Paper Scissors</h1>
-        <div id="headingInfoWrapper" class="heading-info-wrapper">
-          <p class="heading-info">Choose Game Style</p>
-        </div>
-        <div data-game="classic" id="selectGameButton"
-          class="classic-button">
-
-          <h2 data-game="classic" role="button"
-            aria-label="click to choose classic gameplay"
-            class="game-option-heading">Classic</h2>
-
-          <ul data-game="classic" class="game-option-button">
-            <li data-game="classic">Rock > Scissors</li>
-            <li data-game="classic">Paper > Rock</li>
-            <li data-game="classic">Scissors > Paper</li>
-          </ul>
-        </div>
-        <div data-game="extra" id="selectGameButton"
-          class="extra-button">
-
-          <h2  data-game="extra" role="button"
-            aria-label="click to choose EXTRA gameplay"
-            class="game-option-heading">EXTRA Mode</h2>
-
-          <ul  data-game="extra" class="game-option-button">
-            <li  data-game="extra">Rock > Scissors & Paper Clip</li>
-            <li  data-game="extra">Paper > Rock & Tape</li>
-            <li  data-game="extra">Scissors > Paper & Paper Clip</li>
-            <li  data-game="extra">Paper Clip > Paper & Tape</li>
-            <li  data-game="extra">Tape > Scissors & Rock</li>
-          </ul>
-        </div>
-          <button type="button" name="clear-wins"
-            id="clearWins"
-            class="clear-wins hidden">Clear Wins</button>
-
-        <section id="gameplay" class="gameplay hidden"></section>
-      </main>
-      <section class="player-section-two">
-        <h1 class="player-heading">Computer!</h1>
-        <div id="playerImageWrapper" class="player-image"></div>
-        <p id="computerWins" class="win-counter"></p>
+      <div class="game-play-wrapper">
+        <h1 class="game-title">Rock Paper Scissors</h1>
+        <main id="gamePlay" class="game-play"></main>
+      </div>
+      <section id="computer" class="player-section">
+        <img class="player-token" src="assets/computer.png" alt="Hot pink computer with a smile face who's excited to play!">
+        <h2 id="computerWins" class="wins"></h2>
       </section>
     </div>
     <script src="./src/game.js"></script>
