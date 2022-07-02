@@ -21,17 +21,17 @@ On ether page you will be given the choice of fighter. When You click on your ch
 The player stats are saved in local storage. If ether player has wins you are given a button in the human section to clear wins.
 ## Technologies
 * JavaScript
-** Vanilla JavaScript is used here. The focus of this project was to use class constructors and iterator methods.
+   * Vanilla JavaScript is used here. The focus of this project was to use class constructors and iterator methods.
 * HTML
-** The HTML was written with accessibility in mind.
+   * The HTML was written with accessibility in mind.
 * CSS
-** There are layouts for small, medium and large screens and utilizes flex-box.
+   * There are layouts for small, medium and large screens and utilizes flex-box.
 ## Features
-    * Local storage of player stats
-    * Use of tab button to play the game
-    * Screen size responsiveness
-    * Super cute characters :)
+* Local storage of player stats
+* Use of tab button to play the game
+* Screen size responsiveness
+* Super cute characters :)
 ## Contributor 
 * Anna Spitz
 ## Project Spec & Rubric
-* The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo-v2.html)
+* The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/rock-paper-scissors-solo-v2.html).
