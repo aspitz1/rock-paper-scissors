@@ -30,7 +30,14 @@ The player stats are saved in local storage. If ether player has wins you are gi
 * Local storage of player stats
 * Use of tab button to play the game
 * Screen size responsiveness
-* Super cute characters :)
+    * Small screen
+    ![Phone main](/assets/phone-portrait-main.png)
+    ![Phone classic](/assets/phone-portrait-classic.png)
+    ![Phone extra](/assets/phone-landscape-extra.png)
+    * Medium screen
+    ![Landscape phone main](/assets/phone-landscape-main.png)
+    ![Landscape phone classic](/assets/phone-landscape-classic.png)
+    ![Landscape phone extra](/assets/phone-landscape-extra.png)
 ## Contributor 
 * Anna Spitz
 ## Project Spec & Rubric
